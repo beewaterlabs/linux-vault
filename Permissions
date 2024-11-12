@@ -17,3 +17,37 @@ com.apple.provenance:
 $ groups
 $ id -Gn
 $ id <userid>
+
+# Numeric based permissions: read = 4, write = 2, execute = 1
+
+r  w  x
+4  2  1
+
+# Octal chart: 8 possible options, used in this order ---> User  Group  Other
+
+Octal    Binary    String    Description
+0        0         ---       No permissions       
+1        1         --x       Execute only
+2        10        -w-       Write Only
+3        11        -wx       Write and execute (2+1)
+4        100       r--       Read Only
+5        101       r-x       Read and execute (4+1)
+6        110       rw-       Read and write (4+2) 
+7        111       rwx       Read, write, and execute (4+2+1) 
+
+# Commonly used permissions:
+
+Symbolic            Octal  Description
+-rwx------          700    Only owner can access the file.
+-rwxr-xr-x          755    Everyone can execute, only owner of the file can edit.
+-rw-rw-r--          644    Group can modify and read the file.
+-rw-rw----          660    Group can modify and not let others read the file.
+-rw-r--r--          644    Everyone has read only access, only the owner of the file can edit.
+
+# chmod +x (Changes a file's permissions to executable)
+
+
+
+
+
+
