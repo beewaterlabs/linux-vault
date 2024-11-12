@@ -1,0 +1,17 @@
+# Notes - Permissions:
+
+-rw-r--r--@ 1 baranda  staff  0 Nov 12 12:38 my-synth
+
+# Breakdown:
+Type  User  Group  Other    Symbol @ = extended attributes
+|     |     |      |        |
+-     rw-   r--    r--      @   1 baranda  staff  0 Nov 12 12:38 my-synth
+
+# To view the extended attributes: <filename>
+
+$ xattr -l <my-synth>
+
+# To view a user's group: 
+$ groups
+$ id -Gn
+$ id <userid>
