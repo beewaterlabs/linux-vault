@@ -1,1 +1,21 @@
 # Notes on file navigation
+
+# . (current dir)
+
+# Find filename ignoring case:
+Command: find . -iname new-Uptime-filE (Filename = new-uptime-file)
+Output: ./new-uptime-file
+
+# find
+# Find anything(*) that begins with "s" under /usr:
+find /usr -name "s*" -ls
+
+# Find files larger that 1M:
+find /usr -size +1M
+find /usr -size +1M -ls (Add -ls to see file attributes)
+
+# locate
+# locate (Faster than find, however it queries based off an index which is created daily. Might not locate a recent file = find is always current)
+# Locate files and directories that have uptime in thier name:
+locate uptime
+
