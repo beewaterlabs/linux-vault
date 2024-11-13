@@ -30,6 +30,24 @@ tail file    Output the ending (or bottom) portion of file.
 # Follow the file:
 tail -f ramones-bio.txt    This will open and follow (-f) the file, any edits you make will be visable after edits are saved.
 
+# Vi Modes:
+Command     Esc
+Insert      i l a A    
+Line        :
+
+# Vi Copying and Pasting:
+yy         Yank (copy) the current line.
+p          Paste
+
+# Vi Line mode:
+:help      help file.
+:set nu    Turn on line numbering.  
+:set nonu  Tirn off line numbering.
+
+
+
+
+
 
 
 
