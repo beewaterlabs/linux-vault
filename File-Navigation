@@ -35,6 +35,10 @@ Command     Esc
 Insert      i l a A    
 Line        :
 
+# Vi Undo / Redo:
+u          Undo
+Ctrl-R     Redo
+
 # Vi Copying and Pasting:
 yy         Yank (copy) the current line.
 p          Paste
