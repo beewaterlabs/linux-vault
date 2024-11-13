@@ -19,3 +19,6 @@ find /usr -size +1M -ls (Add -ls to see file attributes)
 # Locate files and directories that have uptime in thier name:
 locate uptime
 
+# Displaying the contents of files:
+cat file
+
