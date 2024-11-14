@@ -61,7 +61,7 @@ mv -i file1 file2
 
 I will learn this if I have to... heheh
 
-# Sort file:
+# Sort file(s):
 sort filename  (example below)
 
 sort band-name-sort.txt 
@@ -71,6 +71,26 @@ Aerosmith
 Frank Zappa
 Melvins
 ZZ Top
+
+# tar: Tape Archive is a command-line utility in Linux that creates and manages archive files, also known as tarballs.
+
+tar [-] c|x|t f tarfile [pattern]
+
+# Tar options:
+
+c         Create a tar archive.
+x         Extracts files from the archive.
+t         Display the table of contents (list).
+v         Be verbose.
+z         Use compression.
+f file    Use this file.
+
+# Compressing files to save space:
+
+gzip    Compress files.
+gunzip  Uncompress files.
+gzcat   Concatenates compressed files.
+zcat    Concatenates compressed files.
 
 
 
