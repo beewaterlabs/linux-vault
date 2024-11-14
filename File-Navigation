@@ -51,6 +51,12 @@ p          Paste
 # The Vi editor:
  view file Read only mode
 
+# Interactive mode (For logic prompts when copying or moving files / directories) 
+mv -i file1 file2  
+                   Tested on Macbook             = no prompt
+                   Tested on Fedora 34           = no prompt
+                   Tested on Ubuntu 22.04.5 LTS  = no prompt
+
 # Emacs editor:
 
 I will learn this if I have to... heheh
