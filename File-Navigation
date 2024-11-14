@@ -46,7 +46,7 @@ p          Paste
 # Vi Line mode:
 :help      help file.
 :set nu    Turn on line numbering.  
-:set nonu  Tirn off line numbering.
+:set nonu  Turn off line numbering.
 
 # The Vi editor:
  view file Read only mode
@@ -60,6 +60,19 @@ mv -i file1 file2
 # Emacs editor:
 
 I will learn this if I have to... heheh
+
+# Sort file:
+sort filename  (example below)
+
+sort band-name-sort.txt 
+# Output:
+ACDC
+Aerosmith
+Frank Zappa
+Melvins
+ZZ Top
+
+
 
 
 
