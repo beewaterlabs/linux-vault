@@ -92,9 +92,28 @@ gunzip  Uncompress files.
 gzcat   Concatenates compressed files.
 zcat    Concatenates compressed files.
 
+# Disk Usage:
 
+du      Estimate file usage.
+du - k  Displays sizes in Kilobytes.
+du - h  Displays sizes in humna readable format.
 
+# Output: (. is overall disk usage)
 
+[user@fedora Key]$ du -lah
+4.0K	./my-synth
+4.0K	./ramones-bio.txt
+12K	./.ramones-bio.txt.swp
+0	./test.txt
+4.0K	./band-name-sort.txt
+24K	.
+
+# Graphical Editors:
+
+emacs  Emacs has a graphical mode too.       (Might not use)
+gedit  The default text editor for Gnome.
+gvim   The graphical version of vim.
+kedit  The default text editor for the KDE.
 
 
 
