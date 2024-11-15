@@ -110,10 +110,16 @@ du - h  Displays sizes in humna readable format.
 
 # Graphical Editors:
 
-emacs  Emacs has a graphical mode too.       (Might not use)
-gedit  The default text editor for Gnome.
-gvim   The graphical version of vim.
-kedit  The default text editor for the KDE.
+emacs    Emacs has a graphical mode too.       (Might not use)
+gedit    The default text editor for Gnome.
+gvim     The graphical version of vim.
+kedit    The default text editor for the KDE.
+
+AbiWord       Microsoft Word alternative.
+LibraOffice   Full office suite.
+Kate          Source code editor.
+
+sublime       Text editor.  [Installed on fedora 34]
 
 
 
