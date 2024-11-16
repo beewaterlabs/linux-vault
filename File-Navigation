@@ -121,6 +121,17 @@ Kate          Source code editor.
 
 sublime       Text editor.  [Installed on fedora 34]
 
+# Gzip
+
+12  du -k ramones-bio.txt 
+13  gzip ramones-bio.txt 
+14  ls
+15  ll
+16  ls ramones*
+17  du -k ramones-bio.txt.gz 
+18  gunzip ramones-bio.txt.gz 
+19  ll
+
 
 
 
