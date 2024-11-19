@@ -132,6 +132,12 @@ sublime       Text editor.  [Installed on fedora 34]
 18  gunzip ramones-bio.txt.gz 
 19  ll
 
+# Removing files:
+
+rm file     Remove file.
+rm -r dir   Remove the directory and its contents recursively.
+rm -f file  Force removal and never prompt for confirmation.
+
 
 
 
