@@ -80,7 +80,7 @@ ZZ Top
 
 tar [-] c|x|t f tarfile [pattern]
 
-# Tar options:
+# Tar options:       tar.gz <--- (A tar file compressed with gzip)
 
 c         Create a tar archive.
 x         Extracts files from the archive.
