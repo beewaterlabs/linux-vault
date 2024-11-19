@@ -51,11 +51,15 @@ p          Paste
 # The Vi editor:
  view file Read only mode
 
-# Interactive mode (For logic prompts when copying or moving files / directories) 
+# Interactive mode (For logic prompts when moving or copying files / directories) 
 mv -i file1 file2  
                    Tested on Macbook             = no prompt
                    Tested on Fedora 34           = no prompt
                    Tested on Ubuntu 22.04.5 LTS  = no prompt
+# cp Options:
+
+cp -i                                  Runs in interactive mode.
+cp -r source_directory destination     Copy src_directory recursively to destination. (Will create a copy and create the destination directory if not already present)
 
 # Emacs editor:
 
@@ -137,6 +141,11 @@ sublime       Text editor.  [Installed on fedora 34]
 rm file     Remove file.
 rm -r dir   Remove the directory and its contents recursively.
 rm -f file  Force removal and never prompt for confirmation.
+
+# Search patterns can be used to delete multiple files at once:
+
+ls *s       List all files that start with "s" * <-- Wildcard (Good to use before mass deletion)
+
 
 
 
