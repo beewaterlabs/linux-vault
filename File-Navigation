@@ -34,7 +34,10 @@ ramones-bio: UTF-8 Unicode text
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Follow the file:
+
 tail -f ramones-bio.txt    This will open and follow (-f) the file, any edits you make will be visable after edits are saved.
+
+# /\ Use nano for tail -f to show live changes as vi is currently not recording new edit in Fedora34.
 
 # Vi Modes:
 Command     Esc
@@ -209,7 +212,7 @@ SMBIOS 3.0.0 present.
 # Strings    (Searching for Text in Binary Files)
 strings    Display printable strings.
 
-strings Some-Song.mp3    Shows human readable text of file.
+strings Some-Song.mp3    Shows human readable text of .mp3 file.
 
 
 
