@@ -162,6 +162,13 @@ vimdiff file1 file2    Highlight differences in vim.
 # The grep Cpmmand    (grep pattern file)
 grep    Display lines matching a pattern
 
+cat file | grep pattern:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+[adminuser@fedora Key]$ cat ramones-bio | grep Joey
+invited Jeffrey Hyman (later known as Joey Ramone) to join them in a band. 
+The Ramones experienced several lineup changes over the years, with Joey Ramone (1951-2001) and Johnny Ramone (1948-2004)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 # grep Options
 
 -i    Perform a search, ignoring case.
@@ -184,19 +191,17 @@ grep    Display lines matching a pattern
 26:and were a key part of the late 1970s and early 1980s punk rock scene.
 33:The Ramones’ influence on punk rock and rock music as a whole is immense. They have been cited as an inspiration by countless bands, 
 
+# Pipes ( | <--- Pipe symbol)
+# Pipes can be used to grep for multiple things (Line 190)
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+[adminuser@fedora Key]$ sudo dmidecode | grep "SMBIOS\|System BIOS Version"  
+Getting SMBIOS data from sysfs.                                              
+SMBIOS 3.0.0 present.                                                        
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 # Strings    (Searching for Text in Binary Files)
 strings    Display printable strings.
-
-# Pipes ( | <--- Pipe symbol)
-# Pipes can be used to grep for multiple things.
-
-
-
-grep pattern file
-cat file | grep pattern
-
-# Strings    (Find strings of text)
-
 
 
 
