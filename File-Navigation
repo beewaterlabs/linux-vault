@@ -159,9 +159,48 @@ diff file1 file2       Compare two files.
 sdiff file1 file2      Side-by-side comparison.
 vimdiff file1 file2    Highlight differences in vim.
 
+# The grep Cpmmand    (grep pattern file)
+grep    Display lines matching a pattern
+
+# grep Options
+
+-i    Perform a search, ignoring case.
+-c    Count the number of occurrences in a file.
+-n    Precede output with line numbers.
+-v    Invert Match. Priint lines that don't match.
+
+# Grep-examples
+
+# Here you can see the results of "grep -ci rock ramones-bio -ci:    (Number of times that rock appears in the text file.)
+8
+
+# Here you can see the results of "grep  -ni rock ramones-bio":      (Displays the 8 lines "rock" appears ignoring case.)
+1:Ramones - American punk rock band.
+3:The Ramones were an American punk rock band that formed in Forest Hills, Queens, New York in 1974.
+4:They are widely regarded as one of the most influential and iconic bands in the history of punk rock.
+19:The Ramones went on to release 14 studio albums, including “Road to Ruin” (1978), “Rocket to Russia” (1977), and “Punk Rock Anthems” (1980). 
+20:Their music incorporated elements of punk, rock, and pop, with songs like “Blitzkrieg Bop,” “Sheena Is a Punk Rocker,”
+21:and “I Wanna Be Sedated” becoming punk rock classics.
+26:and were a key part of the late 1970s and early 1980s punk rock scene.
+33:The Ramones’ influence on punk rock and rock music as a whole is immense. They have been cited as an inspiration by countless bands, 
 
 
 
+
+
+
+
+
+
+
+# Pipes
+|    Pipe symbol
+command-output | command-input
+
+grep pattern file
+cat file | grep pattern
+
+# Strings    (Find strings of text)
 
 
 
