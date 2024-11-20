@@ -184,23 +184,20 @@ grep    Display lines matching a pattern
 26:and were a key part of the late 1970s and early 1980s punk rock scene.
 33:The Ramones’ influence on punk rock and rock music as a whole is immense. They have been cited as an inspiration by countless bands, 
 
+# Strings    (Searching for Text in Binary Files)
+strings    Display printable strings.
+
+# Pipes ( | <--- Pipe symbol)
+# Pipes can be used to grep for multiple things.
 
 
-
-
-
-
-
-
-
-# Pipes
-|    Pipe symbol
-command-output | command-input
 
 grep pattern file
 cat file | grep pattern
 
 # Strings    (Find strings of text)
+
+
 
 
 
