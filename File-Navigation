@@ -153,6 +153,11 @@ ls ??              Will show all files with two characters.          (Will list 
 a*.txt      This will list all files that start with a and ennd with .txt
 *.txt       This will list all files ending with .txt
 
+# Comparing Files
+
+diff file1 file2       Compare two files.
+sdiff file1 file2      Side-by-side comparison.
+vimdiff file1 file2    Highlight differences in vim.
 
 
 
