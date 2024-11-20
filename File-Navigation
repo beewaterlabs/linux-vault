@@ -21,11 +21,17 @@ locate uptime
 
 # Displaying the contents of files:
 
-cat file     Display the contents of file.
+cat  file     Display the contents of file.
 more file    Browse through a text file. | next page - spacebar | next line = enter | q = quit
 less file    More features than more.
 head file    Output the beginning (or top) portion of file.
 tail file    Output the ending (or bottom) portion of file.
+
+# Use file to show the filetype:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+file ramones-bio
+ramones-bio: UTF-8 Unicode text
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Follow the file:
 tail -f ramones-bio.txt    This will open and follow (-f) the file, any edits you make will be visable after edits are saved.
