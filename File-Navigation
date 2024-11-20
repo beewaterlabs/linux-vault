@@ -214,10 +214,18 @@ strings    Display printable strings.
 
 strings Some-Song.mp3    Shows human readable text of .mp3 file.
 
+# Searching in files and using pipes Summary:
 
+grep    Search the contents of files.
+file    Determine file type.
+cut     Cut out pieces of a file.
+tr      Translate characters.
+column  Format output into columns.  
+more    Pager command.
+less    Pager command.
+Pipes   Chain commands together using pipes. 
 
-
-
+# Transferring and Copying Files:
 
 
 
