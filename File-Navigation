@@ -227,6 +227,25 @@ Pipes   Chain commands together using pipes.
 
 # Transferring and Copying Files:
 
+scp    Secure copy
+sftp   Secure file transfer protocol
+
+# Graphical SCP/SFTP Clients:
+
+Cyberduck           MacOS
+
+# MacOS install:
+brew update
+brew install duck
+duck --version
+Output: Cyberduck 9.0.2 (42108). Not registered. Purchase a donation key to support the development of this software.
+
+FileZilla           Works with Fedor34
+filezilla --version
+
+Output: Reading locale option from /home/adminuser/.config/filezilla/filezilla.xml
+FileZilla 3.55.0, compiled on 2021-07-09
+
 
 
 
