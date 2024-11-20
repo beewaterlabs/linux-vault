@@ -230,6 +230,18 @@ Pipes   Chain commands together using pipes.
 scp    Secure copy
 sftp   Secure file transfer protocol
 
+# scp:
+scp file.txt user@linuxsvr1:~/tmp/                       (This will use a tilde symbol "~" <--- shortcut for home directory, to copy a file to the /tmp dir of the remote server)
+scp file.txt user@linuxsvr1:home/administrator/tmp/      (This will use the full path of the /tmp dir.)   
+
+
+# sftp:
+sftp <remote-server>    (Enter creds. and you'll contect with your local home directoy)
+
+# Running "l" in front of ls or another command = local directory output.
+lls 
+# Running "ls" without the "l" in front = remote server directoty output.
+
 # Graphical SCP/SFTP Clients:
 
 Cyberduck           MacOS
@@ -245,6 +257,11 @@ filezilla --version
 
 Output: Reading locale option from /home/adminuser/.config/filezilla/filezilla.xml
 FileZilla 3.55.0, compiled on 2021-07-09
+
+
+
+
+
 
 
 
