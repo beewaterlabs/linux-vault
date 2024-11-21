@@ -1,0 +1,42 @@
+Customizing the Prompt
+
+Default prompts can vary from system to system. No matter what shell you are using, you can customize your prompt by setting an environment variable. 
+For shells like bash , ksh , and sh the environment variable PS1 is used to set the primary prompt string. The shells csh , tcsh , and zsh use the prompt environment variable. 
+The format string you place in the environment variable determines the look and feel of your prompt. Each shell uses different format strings so consult the documentation for the shell that you are using.
+
+Let's look at customizing the bash prompt since bash is the most popular default shell for user accounts on Linux systems. 
+These are some of the commonly used formatting string options for bash. For a complete list refer to the man page.
+
+\d - the date in "Weekday Month Date" format (e.g., "Tue May 26") \h - the hostname up to the first '.'
+\H - the hostname
+\n - newline
+\t - the current time in 24-hour HH:MM:SS format \T - the current time in 12-hour HH:MM:SS format \@ - the current time in 12-hour am/pm format
+\A - the current time in 24-hour HH:MM format
+\u - the username of the current user
+\w - the current working directory, with $HOME abbreviated with a tilde
+\W - the basename of the current working directory, with $HOME abbreviated with a tilde 
+\$ - if the effective UID is 0, a #, otherwise a $
+
+Here are some examples of changing the bash shell prompt by manipulating the PS1 environment variable.
+
+------------------------------------------------------------------
+[bob@linuxsvr ~]$ echo $PS1
+[\u@\h \w]\$
+[bob@linuxsvr ~]$ PS1="\u@\h \$ "
+bob@linuxsvr $ PS1="<\t \u@\h \w>\$ "
+<16:42:58 bob@linuxsvr ~>$ cd /tmp
+<16:43:02 bob@linuxsvr /tmp>$ PS1="\d \t \h \W>\$ "
+Mon Nov 18 16:45:51 linuxsvr tmp>$ PS1="\t\n[\h \w]\$ " 16:46:47
+[linuxsvr /tmp]$
+------------------------------------------------------------------
+
+To make your customized shell prompt persist betweens logins, add the PS1 value to your personal initialization files. 
+Personal initialization files are commonly referred to as "dot files" since they begin with a dot or period.
+
++-------------------------------------------------------+
+$ echo 'export PS1="[\u@\h \w]\$ "' >> ~/.bash_profile
++-------------------------------------------------------+
+
+http://www.LinuxTrainingAcademy.com
+
+ 
