@@ -1,5 +1,21 @@
-# Environment Variables:
+# Environment Variables:  
+## Storage location that has a name and a value.
+### Can change how an application behaves.                          
+#### Example:
+EDITOR=nano
 
 # Viewing Enviroonment variables:
+# echo $<ENVIRONMENT-VARIABLE-NAME>
 
-printenv        View environment variables
+printenv        View environment variables.
+printenv HOME   View specific environment variable. 
+echo $HOME      Display home HOME environment variable.
+
+# Creating Environment Variables:
+# Syntax:
+export VAR="value"
+
+# Examples:
+export EDITOR="vi"        Sets the editor to vi.
+export TZ="US/Pacific"    Sets the timezone to US Pacific time.
+
