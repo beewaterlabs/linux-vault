@@ -11,7 +11,7 @@ printenv        View environment variables.
 printenv HOME   View specific environment variable. 
 echo $HOME      Display home HOME environment variable.
 
-# Creating Environment Variables:
+# Creating Environment Variables:  (set)
 # Syntax:
 export VAR="value"
 
@@ -19,9 +19,24 @@ export VAR="value"
 export EDITOR="vi"        Sets the editor to vi.
 export TZ="US/Pacific"    Sets the timezone to US Pacific time.
 
-# Removing Environment Variables:
+Live example: 
+++++++++++++++++++++++++++++++++++++++++++++
+[adminuser@fedora ~]$ export TZ="US/Pacific"
+$ printenv | grep TZ
+$ TZ=US/Pacific
+++++++++++++++++++++++++++++++++++++++++++++
+
+# Removing Environment Variables:   (unset)
 # Syntax:
 unset VAR
 # Example:
-unset TZ
+unset TZ ("TZ" or the Environment Variable name you'd like to unset.)
+
+# The act of setting and unsetting Environment Variables from the cmd line only effects your current running session only.
+# Persist Environment Variables:    (Peronal Initialization files - .bashrc <--- configuration file for the Bash shell)
+#                                   (.profile <--- configuration file for the user’s shell)
+
+cat ~/.
+
+
 
