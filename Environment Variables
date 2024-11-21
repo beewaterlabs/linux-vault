@@ -19,7 +19,7 @@ export VAR="value"
 export EDITOR="vi"        Sets the editor to vi.
 export TZ="US/Pacific"    Sets the timezone to US Pacific time.
 
-Live example: 
+# Live example: 
 ++++++++++++++++++++++++++++++++++++++++++++
 [adminuser@fedora ~]$ export TZ="US/Pacific"
 $ printenv | grep TZ
@@ -35,8 +35,28 @@ unset TZ ("TZ" or the Environment Variable name you'd like to unset.)
 # The act of setting and unsetting Environment Variables from the cmd line only effects your current running session only.
 # Persist Environment Variables:    (Peronal Initialization files - .bashrc <--- configuration file for the Bash shell)
 #                                   (.profile <--- configuration file for the user’s shell)
+# Editing this file will keep your settings persistent.        (~/.bash_profile)
 
-cat ~/.
+export TZ="US/Pacific"
+
+# I've added the above cmd to my ~/.bashrc_profile to make the setting persistant, then tested by changing the time zone to Central (export TZ="US/Central") 
+# locally and rebooting: 
+
+# Live example: 
+++++++++++++++++++++++++++++++++++++++++++++
+[adminuser@fedora ~]$ date
+Thu Nov 21 03:11:17 PM PST 2024
+++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+
+
+
+
+
 
 
 
