@@ -1,0 +1,5 @@
+# Environment Variables:
+
+# Viewing Enviroonment variables:
+
+printenv        View environment variables
