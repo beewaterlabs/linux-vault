@@ -19,3 +19,9 @@ export VAR="value"
 export EDITOR="vi"        Sets the editor to vi.
 export TZ="US/Pacific"    Sets the timezone to US Pacific time.
 
+# Removing Environment Variables:
+# Syntax:
+unset VAR
+# Example:
+unset TZ
+
