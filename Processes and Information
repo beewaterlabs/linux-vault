@@ -15,3 +15,24 @@ ps -eH            Display a process tree.
 ps -e --forest    Display a process tree.
 ps -u username    Display processes running as username.
 
+# Live example of [ps -ef | less]:
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 14:56 ?        00:00:01 /usr/lib/systemd/systemd --switched-root --system --deserialize 
+31
+root           2       0  0 14:56 ?        00:00:00 [kthreadd]
+root           3       2  0 14:56 ?        00:00:00 [rcu_gp]
+root           4       2  0 14:56 ?        00:00:00 [rcu_par_gp]
+root           5       2  0 14:56 ?        00:00:00 [netns]
+root           7       2  0 14:56 ?        00:00:00 [kworker/0:0H-events_highpri]
+root           9       2  0 14:56 ?        00:00:00 [mm_percpu_wq]
+root          10       2  0 14:56 ?        00:00:00 [rcu_tasks_kthread]
+root          11       2  0 14:56 ?        00:00:00 [rcu_tasks_rude_kthread]
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# Other ways to view processes:
+
+pstree         Display running processes in a tree format.
+htop           Interactive process viewer. This command is less common than top and may not be available on the system.
+top            Interactive process viewer.
+
