@@ -7,3 +7,11 @@
 -u        Display username's processes.  
 -p <pid>  Display information for PID.
 
+# Common ps Commands:
+
+ps -e             Display all processes.
+ps -ef            Display all processes.
+ps -eH            Display a process tree.
+ps -e --forest    Display a process tree.
+ps -u username    Display processes running as username.
+
