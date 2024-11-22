@@ -50,8 +50,15 @@ export TZ="US/Pacific"
 Thu Nov 21 03:11:17 PM PST 2024
 ++++++++++++++++++++++++++++++++++++++++++++
 
+# To see the effect an Environment Variable has, read the man page:
+# man date
+# Man page snippet:
 
-
+============================Man Page Output===========================================
+ENVIRONMENT
+       TZ     Specifies the timezone, unless overridden by command line  parameters.
+              If neither is specified, the setting from /etc/localtime is used.
+============================Man Page Output===========================================
 
 
 
