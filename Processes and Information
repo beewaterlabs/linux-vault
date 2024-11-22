@@ -1,0 +1,9 @@
+# Processes and Information
+
+# ps Options:
+
+-e        Everything, all processes.
+-f        Full format listing.
+-u        Display username's processes.  
+-p <pid>  Display information for PID.
+
