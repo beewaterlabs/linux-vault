@@ -46,6 +46,12 @@ command &     Start command in background.
 
 # Processes that are backgrounded still execute and perform their tasks, without blocking you from entering new commands.
 
+# Background & Foreground Processes:
+bg [%num]     Background a suspended process.
+fg [%num]     Foreground a background process.
+kill          Kill a process by job number or PID.
+jobs [%num]   List jobs.
+
 
 
 
