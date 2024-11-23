@@ -33,6 +33,25 @@ root          11       2  0 14:56 ?        00:00:00 [rcu_tasks_rude_kthread]
 # Other ways to view processes:
 
 pstree         Display running processes in a tree format.
+
+
 htop           Interactive process viewer. This command is less common than top and may not be available on the system.
 top            Interactive process viewer.
+
+# Foreground and Background Processes:
+
+Ctrl-z        Suspend the foreground process.
+Ctrl-c        Kill the foreground process.
+command &     Start command in background.
+
+# Processes that are backgrounded still execute and perform their tasks, without blocking you from entering new commands.
+
+
+
+
+
+
+
+
+
 
