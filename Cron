@@ -43,6 +43,27 @@ Purpose     Use cron to schedule and automate tasks.
 
 # I'll try to run my .validate.sh script as a live example:
 
+try things here \/ Delete when fin -> []
+
+
+
+
+
+# Run for the first 5 minutes of the hour:
+
+0-4 * * * * /opt/acme/bin/15-min-check              (run and code review this ---> [])
+
+# Crontab Shortcuts:
+
+@yearly      0 0 1 1 *
+@annually    0 0 1 1 *  
+@monthly     0 0 1 * * 
+@weekly      0 0 * * 0
+@daily       0 0 * * * 
+@midnight    0 0 * * *
+@hourly      0 * * * *
+
+
 
 
 
