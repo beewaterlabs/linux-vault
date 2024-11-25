@@ -1,3 +1,4 @@
+
 # Scheduling Repeated Jobs with Cron:
 # What is cron:
 Cron        A time based job scheduling service.
@@ -12,4 +13,23 @@ Purpose     Use cron to schedule and automate tasks.
 |  |  + - - - - - - - Day of the Month    (1 - 31)
 |  +- - - - - - - - - Hour                (0 -23)
 + - - - - - - - - - - Minute              (0 - 59)
+
+# This example cron job runs every Monday at 07:00 (7am):
+
+0 7 * * 1 /opt/sales/bin/weekly-report
+
+# This command will only run when all field match the command.
+
+# Example Crontab Entry:
+
+0 7 * * 1 /opt/sales/bin/weekly-report
+* * * * *  command
+| | | | |
+| | | | + - - - - - - Day of the Week     (0 - 6)    |  Sunday - 0
+| | | + - - - - - - - Month  of the year  (1 - 12)
+| | + - - - - - - - - Day of the Month    (1 - 31)      
+| + - - - - - - - - - Hour                (0 - 23)
++ - - - - - - - - - - Minute              (0 - 59)
+
+
 
