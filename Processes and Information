@@ -47,6 +47,11 @@ command &     Start command in background.
 # Processes that are backgrounded still execute and perform their tasks, without blocking you from entering new commands.
 
 # Background & Foreground Processes:
+# When a process is sent to the backround with '&' it will generate a number in brackets ---> [1] along with a PID as seen below:
+
+[adminuser@fedora Key]$ sudo ./ramones-bio &
+[1] 2672
+
 # Will execute on the current/last job unless provided a job number or PID.
 
 bg [%num]     Background a suspended process.
@@ -55,15 +60,32 @@ kill          Kill a process by job number or PID.
 jobs [%num]   List jobs.
 
 # Killing Processes:
+# Linux Signal numbers for Fedora release 34 (Thirty Four):
+
+ 1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL	 5) SIGTRAP
+ 6) SIGABRT	 7) SIGBUS	 8) SIGFPE	 9) SIGKILL	10) SIGUSR1
+11) SIGSEGV	12) SIGUSR2	13) SIGPIPE	14) SIGALRM	15) SIGTERM
+16) SIGSTKFLT	17) SIGCHLD	18) SIGCONT	19) SIGSTOP	20) SIGTSTP
+21) SIGTTIN	22) SIGTTOU	23) SIGURG	24) SIGXCPU	25) SIGXFSZ
+26) SIGVTALRM	27) SIGPROF	28) SIGWINCH	29) SIGIO	30) SIGPWR
+31) SIGSYS	34) SIGRTMIN	35) SIGRTMIN+1	36) SIGRTMIN+2	37) SIGRTMIN+3
+38) SIGRTMIN+4	39) SIGRTMIN+5	40) SIGRTMIN+6	41) SIGRTMIN+7	42) SIGRTMIN+8
+43) SIGRTMIN+9	44) SIGRTMIN+10	45) SIGRTMIN+11	46) SIGRTMIN+12	47) SIGRTMIN+13
+48) SIGRTMIN+14	49) SIGRTMIN+15	50) SIGRTMAX-14	51) SIGRTMAX-13	52) SIGRTMAX-12
+53) SIGRTMAX-11	54) SIGRTMAX-10	55) SIGRTMAX-9	56) SIGRTMAX-8	57) SIGRTMAX-7
+58) SIGRTMAX-6	59) SIGRTMAX-5	60) SIGRTMAX-4	61) SIGRTMAX-3	62) SIGRTMAX-2
+63) SIGRTMAX-1	64) SIGRTMAX
 
 Ctrl-c             Kills the foreground process.
 kill [-sig] pid    Send a signal to a process.
 kill -l            Display a list of signals.
-kill 123                   
-kill -15 123
-kill -TERM 123    kill -9 123
+kill 123           Shows PID number to kill, unless you've backgrounded 123 proccesses than it would be job 123.         
+kill -15 123       Kill using SIG-15 and the PID number. 
+kill -TERM 123     Kill using TERM and the PID number.
+kill -9 123        Kill using SIG-9 and the PID number.
 
 # Continue here.....
+
 
 
 
