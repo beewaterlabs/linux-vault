@@ -1,1 +1,15 @@
-#  Scheduling Repeated Jobs with Cron:
+# Scheduling Repeated Jobs with Cron:
+# What is cron:
+Cron        A time based job scheduling service.
+crontab     A program to create, read, update and deleteyour job schedules. 
+Purpose     Use cron to schedule and automate tasks.
+
+# Crontab Format:
+*  *  *  *  *  command
+|  |  |  |  |
+|  |  |  |  + - - - - Day of the Week     (0 - 6)
+|  |  |  + - - - - -  Month  of the year  (1 - 12)    
+|  |  + - - - - - - - Day of the Month    (1 - 31)
+|  +- - - - - - - - - Hour                (0 -23)
++ - - - - - - - - - - Minute              (0 - 59)
+
