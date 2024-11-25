@@ -84,7 +84,10 @@ kill -15 123       Kill using SIG-15 and the PID number.
 kill -TERM 123     Kill using TERM and the PID number.
 kill -9 123        Kill using SIG-9 and the PID number.
 
-# Continue here.....
+#  For a hard to kill process:
+[adminuser@fedora Key]$ kill -KILL
+
+
 
 
 
