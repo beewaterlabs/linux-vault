@@ -14,11 +14,11 @@ Purpose     Use cron to schedule and automate tasks.
 |  +- - - - - - - - - Hour                (0 -23)
 + - - - - - - - - - - Minute              (0 - 59)
 
-# This example cron job runs every Monday at 07:00 (7am):
+# In this example, the cron job runs every Monday at 07:00 (7am):
 
 0 7 * * 1 /opt/sales/bin/weekly-report
 
-# This command will only run when all field match the command.
+# This command will only run when all fields match.
 
 # Example Crontab Entry:
 
@@ -30,6 +30,34 @@ Purpose     Use cron to schedule and automate tasks.
 | | + - - - - - - - - Day of the Month    (1 - 31)      
 | + - - - - - - - - - Hour                (0 - 23)
 + - - - - - - - - - - Minute              (0 - 59)
+
+# Eample Crontab Entries:
+
+# Run every 15 minutes:
+
+0, 15, 30, 45 * * * * /opt/acme/bin/15-min-check   (run and code review this ---> [])
+
+# Another way to do the same thing:
+
+*/15 * * * * /opt/acme/bin/15-min-check            (run and code review this ---> [])
+
+# I'll try to run my .validate.sh script as a live example:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
