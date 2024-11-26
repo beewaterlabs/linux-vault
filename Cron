@@ -63,6 +63,13 @@ try things here \/ Delete when fin -> []
 @midnight    0 0 * * *
 @hourly      0 * * * *
 
+# Using the Crontab command:
+
+crontab file    Install  anew crontab from file.
+crontab -l      List your cron jobs.
+crontab -e      Edit your cron jobs.
+crontab -r      Remove all of your cron jobs.
+
 
 
 
