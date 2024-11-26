@@ -1,9 +1,12 @@
 
 # Scheduling Repeated Jobs with Cron:
+
 # What is cron:
 Cron        A time based job scheduling service.
 crontab     A program to create, read, update and deleteyour job schedules. 
 Purpose     Use cron to schedule and automate tasks.
+
+# man cron  Userguide.
 
 # Crontab Format:
 *  *  *  *  *  command
@@ -46,8 +49,7 @@ Purpose     Use cron to schedule and automate tasks.
 try things here \/ Delete when fin -> []
 
 
-
-
+*/15 * * 
 
 # Run for the first 5 minutes of the hour:
 
@@ -65,10 +67,12 @@ try things here \/ Delete when fin -> []
 
 # Using the Crontab command:
 
-crontab file    Install  anew crontab from file.
+crontab file    Install a new crontab from file.
 crontab -l      List your cron jobs.
 crontab -e      Edit your cron jobs.
 crontab -r      Remove all of your cron jobs.
+
+# Here you can see the newly created cron job and commands used to create it and list all cron jobs:
 
 
 
