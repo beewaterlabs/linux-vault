@@ -1,1 +1,29 @@
 # Switching Users and Running Commands as Others
+
+# The su Command:
+su        Change user ID or become superuser
+
+# Your current environmet is passed to the new shell unless you specify a hyphen or a dash.
+
+# Su Options:
+-         A hyphen is used to provide an environment similar to what the user would expect had the user logged in directly.
+-c        Specify a command to be executed. If the command is more than one word you'll need to surround it with quotes.
+whoami    Shows the current account name.
+
+# Sudo - Super User Do:
+sudo      Execute a command as another user, typically the superuser.
+
+# See available commands:
+sudo -l   List available commands.
+sudo      Run command as root.
+sudo -u   Run as user.
+
+# Using sudo
+sudo su                Switch to the superuser account.
+sudo su -              Switch to the superuser account with root's environment.
+sudo su - username     Switch to the username account.
+
+# Changing the sudo Configuration:
+visudo    Edit the /etc/sudoers file.
+
+
