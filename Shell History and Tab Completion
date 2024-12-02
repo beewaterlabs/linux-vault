@@ -1,3 +1,28 @@
 # Shell History and Tab Completion
 
-# 
+# Shell history is stored in memory and on disk:
+~/.bash_history
+~/.history
+~/.histfile
+
+# History command:
+history        Displays the shell history.
+HISTSIZE       Controls the number of commands to retain in history.
+
+# Default size is limited to 500 lines. To change that value, do the following:
+
+# Open your personal initialization file, which is usually ~/.bashrc or ~/.profile, in a text editor.
+# Add the following line to the file: export HISTSIZE=1000
+# Save the file and exit the text editor.
+# Reload the shell by running the command source ~/.bashrc or source ~/.profile.
+
+# ! Syntax:
+!N        Repeat command line number N.
+!!        Repeat the previous command line.
+!string   Repeat the most recent command starting with "string".
+
+# Tab completion ---> self-explanatory
+
+# History examples:
+
+echo $HISTSIZE    This will show the current size limit.
