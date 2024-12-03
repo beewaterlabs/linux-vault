@@ -1,10 +1,21 @@
 # Installing Software on RPM Based Linux Distros: RedHat, CentOS, AlmaLinux, Fedora, Rocky
 
 # Package overview:
-Package   A collection of files.
-          Data /Metadata
-          Package description
-          Version
-          Dependencies
+
+# Package overview: A collection of files.
+                    Data /Metadata
+                    Package description
+                    Version
+                    Dependencies
+
+# Package Manager: Installs, upgrades and removes packages. Manages dependencies.
+
+# Package Types:
+
+RPM distros - RHEL, CentOS, AlmaLinux, Fedora, Rocky
+
+DEB distros - Debian, Ubuntu, Kali Linux, Linux Mint
+
+
 
 
