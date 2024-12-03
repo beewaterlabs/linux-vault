@@ -1,2 +1,10 @@
 # Installing Software on RPM Based Linux Distros: RedHat, CentOS, AlmaLinux, Fedora, Rocky
 
+# Package overview:
+Package   A collection of files.
+          Data /Metadata
+          Package description
+          Version
+          Dependencies
+
+
