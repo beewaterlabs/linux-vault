@@ -32,5 +32,16 @@ dnf install [-y] package       Install package
 dnf remove package             Remove package
 dnf upgarde [package]          Update package
 
+dnf upgrade       Update packages: Make sure your system has all of the latest packages installed with all the latest bug fixes and security updates.
+
+# uname
+uname -m          Prints out the machine's architecture
+uname -r          Returns the kernel release version
+uname -a          Returns: Operating System, Network Node Hostname, Kernel Release, Kernel Version and Machine Hardware Platform.
+
+# curl            Download a package from the internet to my local Linux system.
+curl  
+
+
 
 
