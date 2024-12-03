@@ -1,8 +1,7 @@
 # Installing Software on RPM Based Linux Distros: RedHat, CentOS, AlmaLinux, Fedora, Rocky
 
-# Package overview:
-
-# Package overview: A collection of files.
+# Package overview: 
+                    A collection of files.
                     Data /Metadata
                     Package description
                     Version
@@ -16,8 +15,22 @@ RPM distros - RHEL, CentOS, AlmaLinux, Fedora, Rocky
 
 DEB distros - Debian, Ubuntu, Kali Linux, Linux Mint
 
-# yum - RHEL 7 / CentOS 7 $ Earlier
-yum search string    Search for string
-yum info             Display info    
-yum info "bash*"
+# yum - RHEL 7 / CentOS 7 & Earlier:
+
+yum info "bash*" 
+yum search string              Search for string     
+yum info [package]             Display info
+yum install [-y] package       Install package
+yum remove package             Remove package
+yum upgarde [package]          Update package
+
+# dnf - RHEL 8 /CentOS 8 & Later: yum is a symbolic link to dnf, this may chnage in future distos.
+
+dnf search string              Search for string 
+dnf info [package]             Display info
+dnf install [-y] package       Install package
+dnf remove package             Remove package
+dnf upgarde [package]          Update package
+
+
 
