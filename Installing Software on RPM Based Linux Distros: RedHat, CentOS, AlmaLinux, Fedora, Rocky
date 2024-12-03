@@ -16,6 +16,8 @@ RPM distros - RHEL, CentOS, AlmaLinux, Fedora, Rocky
 
 DEB distros - Debian, Ubuntu, Kali Linux, Linux Mint
 
-
-
+# yum - RHEL 7 / CentOS 7 $ Earlier
+yum search string    Search for string
+yum info             Display info    
+yum info "bash*"
 
