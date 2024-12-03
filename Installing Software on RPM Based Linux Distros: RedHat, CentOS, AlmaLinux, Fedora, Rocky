@@ -11,9 +11,9 @@
 
 # Package Types:
 
-RPM distros - RHEL, CentOS, AlmaLinux, Fedora, Rocky
+# RPM distros - RHEL, CentOS, AlmaLinux, Fedora, Rocky
 
-DEB distros - Debian, Ubuntu, Kali Linux, Linux Mint
+# DEB distros - Debian, Ubuntu, Kali Linux, Linux Mint
 
 # yum - RHEL 7 / CentOS 7 & Earlier:
 
@@ -34,14 +34,46 @@ dnf upgarde [package]          Update package
 
 dnf upgrade       Update packages: Make sure your system has all of the latest packages installed with all the latest bug fixes and security updates.
 
-# uname
+# uname:
+
 uname -m        Prints out the machine's architecture
 uname -r        Returns the kernel release version
 uname -a        Returns: Operating System, Network Node Hostname, Kernel Release, Kernel Version and Machine Hardware Platform.
 
-# curl          Download a package from the internet to my local Linux system.
+# curl:          Download a package from the internet to my local Linux system.
+
 curl -O         Causes the file to be saved locally with the same name that was used on the remote system.
 
++++++++++++++Tested on Fedora34+++++++++++++
+
+# Install universal example .rpm:
+
+[adminuser@fedora ~]$ curl -O https://mirror.linuxtrainingacademy.com/packages/example/example-1.0-1.noarch.rpm        |        Using noarch ---> Will work on any CPU type.
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  6124  100  6124    0     0  14241      0 --:--:-- --:--:-- --:--:-- 14208
+
+[adminuser@fedora ~]$ rpm -ivh example-1.0-1.noarch.rpm    |        Using RPM Package Manager, originally Red Hat Package Manager.
+
+error: Failed dependencies:
+	example-lib is needed by example-1.0-1.noarch
+
+# Install failed dependency:
+
+[adminuser@fedora ~]$ curl -O https://mirror.linuxtrainingacademy.com/packages/example/example-lib-1.0-1.noarch.rpm
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  6144  100  6144    0     0  23630      0 --:--:-- --:--:-- --:--:-- 23630
+
+# Now we can install the original package:        |        Installation successful.
+
+[adminuser@fedora ~]$ curl -O https://mirror.linuxtrainingacademy.com/packages/example/example-1.0-1.noarch.rpm
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  6124  100  6124    0     0  25731      0 --:--:-- --:--:-- --:--:-- 25731
+
++++++++++++++Tested on Fedora34+++++++++++++
 
 
 
