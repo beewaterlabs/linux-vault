@@ -1,0 +1,14 @@
+# Installing Software on DEB (Debian Linux) Distros - Debian, Ubuntu, Linux Mint, Kali Linux, Raspberry Pi OS.
+
+# APT - Advanced Packaging Tool
+
+apt-cache search [string]       Look for a package by it's name or description.
+apt-cache show package          Display information about the package.
+
+apt-get install [-y] package    Install package. The -y bypasses any questions and moves past the package information output.
+apt-get remove package          Remove package, leaving configuration (There may be a reason for leaving the configuration...).
+apt-get purge package           Remove package, deleting configuration.
+
+
+apt-get update                  Get the current list of available software. Run this before installing a package to obtain a fresh list of software. This will avoid having an outdated reference list with old SW versions.
+apt-get upgrade                 Upgrade all installed packages.
