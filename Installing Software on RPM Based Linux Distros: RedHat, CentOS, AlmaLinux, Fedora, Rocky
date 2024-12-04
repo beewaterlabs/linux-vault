@@ -44,6 +44,17 @@ uname -a        Returns: Operating System, Network Node Hostname, Kernel Release
 
 curl -O         Causes the file to be saved locally with the same name that was used on the remote system.
 
+# rpm:
+
+rpm -qa			  List all installed packages.
+rpm -q example		  Find a single package.
+rpm -ql	[package name]    List all files included in a package.
+
+# Fedora34 output: This example only contains 1 file located in the following dorectory ---> /usr/local/bin/example
+
+[adminuser@fedora ~]$ rpm -ql example
+/usr/local/bin/example
+
 +++++++++++++Tested on Fedora34+++++++++++++
 
 # Install universal example .rpm:
@@ -54,7 +65,7 @@ curl -O         Causes the file to be saved locally with the same name that was 
                                  Dload  Upload   Total   Spent    Left  Speed
 100  6124  100  6124    0     0  14241      0 --:--:-- --:--:-- --:--:-- 14208
 
-[adminuser@fedora ~]$ rpm -ivh example-1.0-1.noarch.rpm    |        Using RPM Package Manager, originally Red Hat Package Manager.
+[adminuser@fedora ~]$ rpm -ivh example-1.0-1.noarch.rpm		|        Using RPM Package Manager, originally Red Hat Package Manager.
 
 error: Failed dependencies:
 	example-lib is needed by example-1.0-1.noarch
@@ -66,14 +77,32 @@ error: Failed dependencies:
                                  Dload  Upload   Total   Spent    Left  Speed
 100  6144  100  6144    0     0  23630      0 --:--:-- --:--:-- --:--:-- 23630
 
-# Now we can install the original package:        |        Installation successful.
+[adminuser@fedora ~]$ rpm -ivh example-lib-1.0-1.noarch.rpm	|        Using RPM Package Manager, originally Red Hat Package Manager.
 
-[adminuser@fedora ~]$ curl -O https://mirror.linuxtrainingacademy.com/packages/example/example-1.0-1.noarch.rpm
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100  6124  100  6124    0     0  25731      0 --:--:-- --:--:-- --:--:-- 25731
+# Now we can install the original package:
+
+[adminuser@fedora ~]$ rpm -ivh example-1.0-1.noarch.rpm		|        Using RPM Package Manager, originally Red Hat Package Manager.
+
+# After installing the missing dependency, the installation now works:
+
+[adminuser@fedora ~]$ sudo rpm -ivh example-1.0-1.noarch.rpm
+Verifying...                          ################################# [100%]
+Preparing...                          ################################# [100%]
+Updating / installing...
+   1:example-1.0-1                    ################################# [100%]
 
 +++++++++++++Tested on Fedora34+++++++++++++
+
+# Uninstalling packages: Make sure to un-install in reverse order, this eliminates dependency errors.
+
+
+
+
+
+
+
+
+
 
 
 
