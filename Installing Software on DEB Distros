@@ -1,7 +1,5 @@
 # Installing Software on DEB (Debian Linux) Distros - Debian, Ubuntu, Linux Mint, Kali Linux, Raspberry Pi OS.
 
-# APT - Advanced Packaging Tool
-
 apt-cache search [string]       Look for a package by it's name or description.
 apt-cache show package          Display information about the package.
 
@@ -12,3 +10,32 @@ apt-get purge package           Remove package, deleting configuration.
 
 apt-get update                  Get the current list of available software. Run this before installing a package to obtain a fresh list of software. This will avoid having an outdated reference list with old SW versions.
 apt-get upgrade                 Upgrade all installed packages.
+
+# On Debian 8 & Ubuntu 16.04 version and later, you can use apt.
+# APT - Advanced Packaging Tool:
+
+apt                             Combination of apt-cache and apt-get.
+
+apt search
+apt install
+apt purge
+apt update
+apt upgrade
+
+# dpkg                          Does not handle dependancies.
+
+dpkg -l                         List the installed packages.
+dpkg -L                         List all the files in a package.
+dpkg -i package.deb             Install the package.
+dpkg -S /path/to/file           List the file's package.     
+dpkg -r package                 Remove (uninstall) the package. 
+
+# uname -m                    Show CPU architecture.
+# .deb with "all"             Package for any architecture.
+++++
+Show CPU architecture:
+adminuser@ubuntu-dev-vm:~$ uname -m
+aarch64
+++++
+
+
