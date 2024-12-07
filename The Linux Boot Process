@@ -1,1 +1,8 @@
 # The Linux Boot Process
+# Reference: https://external-teksystems.udemy.com/course/linux-administration-bootcamp/learn/lecture/5720622#overview
+
+
+Bios
+Boot loaders
+Linux Kernel
+Runlevels
