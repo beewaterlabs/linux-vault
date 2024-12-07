@@ -1,8 +1,113 @@
 # The Linux Boot Process
-# Reference: https://external-teksystems.udemy.com/course/linux-administration-bootcamp/learn/lecture/5720622#overview
+
+# Bios
+
+# Boot loaders        Start operating system.
+
+lilo
+grub
+
+# Ubuntu boot directory:
+
+./boot        Contains files required to boot Linux.
+              initrd
+              kernel
+              boot loader configuration
+
+adminuser@ubuntu-dev-vm:/usr/games$ ls -F /boot
+config-5.15.0-126-generic      lost+found/
+config-6.8.0-49-generic        System.map-5.15.0-126-generic
+efi/                           System.map-6.8.0-49-generic
+grub/                          vmlinuz@
+initrd.img@                    vmlinuz-5.15.0-126-generic
+initrd.img-5.15.0-126-generic  vmlinuz-6.8.0-49-generic
+initrd.img-6.8.0-49-generic    vmlinuz.old@
+initrd.img.old@
+
+# Linux Kernel
+
+vmlinux
+vmlinuz
+
+# Kernel Ring Buffer:
+        
+        Contains messages from the Linux kernel.
+        dmesg
+        /var/log/dmesg
+
+# Run levels
+
+0            Shuts down the system.
+1,S,s        Single user mode. Used for maintenance.
+2            Multi-user mode with graphical interface. (Debian/Ubuntu)
+3            Multi-user text mode. (RedHat/CentOS)        
+4            Undefined.
+5            Multi-user mode with graphical interface (RedHat/CentOS) 
+6            Reboot.
+
+# Systemd:                 Uses targets instead of runlevels
+# runlevel targets:        Are symlinks to the real targets being used.
+# runlevel 15:             Symlink to the graphical.target (He says runlevel5 instead of 15 in the video)
+
+dminuser@ubuntu-dev-vm:/lib/systemd/system$ ls -l runlevel5.target
+lrwxrwxrwx 1 root root 16 Aug  8 14:51 runlevel5.target -> graphical.target
+
+systemctl set-default graphical.target        Change the default runlevel or target with systemd.
+
+# Optionally you can manually create a symlink to the desired target. (Fedora)
+
+[adminuser@fedora ~]$ cat  /etc/systemd/system/default.target 
+#  SPDX-License-Identifier: LGPL-2.1-or-later
+#
+#  This file is part of systemd.
+#
+#  systemd is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU Lesser General Public License as published by
+#  the Free Software Foundation; either version 2.1 of the License, or
+#  (at your option) any later version.
+
+[Unit]
+Description=Graphical Interface
+Documentation=man:systemd.special(7)
+Requires=multi-user.target
+Wants=display-manager.service
+Conflicts=rescue.service rescue.target
+After=multi-user.target rescue.service rescue.target display-manager.service
+AllowIsolate=yes
+
+# Change runlevels with the init system:
+
+telinit 5                                 telinit RUNLEVEL
+systemctl isolate graphical.target        systemctl isolate TARGET
+
+# Rebooting:
+
+telinit 6                              Method: init system       
+systemctl isolate reboot.target        Method: systemd
+reboot                                 Method: Execute reboot... lol :)
+
+# Shutdown command:
+
+shutdown [options] time [message]                      When you run these commands, the system will broadcast a message to all logged-in users, informing them of the impending reboot.
+
+shutdown -r 15:00 "rebooting!"                         Reboots system at 15:00.  
+shutdown -r +5 "rebooting soon, see time below"        When you run these commands, the system will broadcast a message to all logged-in users, informing them of the impending reboot.       
+shutdown +5 "rebooting in 5 minutes!"                  Represents the number of minutes. (+number)
+shutdown -r now                                        Reboots now. 
+
+# Power Off commands:
+
+telinit 0                                Method: init system
+systemctl isolate poweroff.target        Method: systemd
+poweroff                                 Method: Execute poweroff... lol :)
 
 
-Bios
-Boot loaders
-Linux Kernel
-Runlevels
+
+
+
+
+
+
+
+
+
