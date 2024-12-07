@@ -2,7 +2,7 @@
 
 # Bios
 
-# Boot loaders        Start operating system.
+# Boot loaders:
 
 lilo
 grub
