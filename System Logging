@@ -48,6 +48,7 @@ Code    Severity     Keyword              Description
 6       Info         info                 Informational messages
 7       Debug        debug                Debug-level messages   (Least sever)   
 
+# Where logs are stored:
 # Syslog servers:    Processes syslog messages based on rules.
 
 syslogd
@@ -67,6 +68,8 @@ $ IncludeConfig /etc/rsyslog.d/*.conf    Cause rsyslog to read and include all c
                      mail
                      FACILITY.none
                      FACILITY_1.SEVERITY;FACILITY_2.SEVERITY
+
+# Action feild       Determines how a message is processed
 
 # Example Logging Rule:
 
@@ -95,6 +98,7 @@ auth,authpriv.*                /var/log/auth.log    Ensures that all messages wi
 
 *.info;mail.none;authpriv.none;cron.none /var/log/messages   The rule tells rsyslog to write all messages except mail, authpriv and cron to /var/log/messages
 
+# How to generate your own log messages:
 # logger:    Use the logger command to generate syslog mesages.
              Helpful for testing any configuration changes you made to the system logger.
              Generate log messages from your own shell scripts.
@@ -115,6 +119,7 @@ $ sudo tail -1 /var/log/mail.log
 human@ubuntu-dev-vm:~$ sudo tail -1 /var/log/mail.log
 2024-12-09T06:47:15.018168+00:00 ubuntu-dev-vm mailtest: Test
 
+# Rotating log files:
 # logrotate                 Rotate, compress, remove & mail log files. 
                             Provides an automated way to manage log files and cab prevent filling up your storage space with log files.
 
@@ -123,17 +128,42 @@ include /etc/logrotate.d    Tells logrotate to read configuration files located 
 
 # Example logrotate.conf file:
 
+-------Beginning-of-file-------
+humann@ubuntu-dev-vm:~$ cat /etc/logrotate.conf 
+# see "man logrotate" for details
+
+# global options do not affect preceding include directives
+
+# rotate log files weekly
+weekly
+
+# use the adm group by default, since this is the owning group
+# of /var/log/.
+su root adm
+
+# keep 4 weeks worth of backlogs
+rotate 4
+
+# create new (empty) log files after rotating old ones
+create
+
+# use date as a suffix of the rotated file
+#dateext
+
+# uncomment this if you want your log files compressed
+#compress
+
+# packages drop log rotation information into this directory
+include /etc/logrotate.d
+
+# system-specific logs may also be configured here.
+-------End-of-file-------
 
 
-# Action feild       Determines how a message is processed
 
 
-# Where logs are stored:
 
 
-# How to generate your own log messages:
 
-
-# Rotating log files:
 
 
