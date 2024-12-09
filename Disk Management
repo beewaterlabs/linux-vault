@@ -1,37 +1,46 @@
 # Disk Management
 
-# Partitions        Disk divided into parts = Partition
-                    Allow you to separate data
+# Partitions      Disk divided into parts = Partition
+                  Allow you to separate data
 
-# Partitioning schemes:        As a system administrator, you decide.
+# Partitioning schemes:        
+# As a system administrator, you decide. (solo) 
+# Make sure you are using the approved standard for your team's environment.
 
 1) OS, 2) Application, 3) User, 4) Swap
 1) OS, 2) User home directories
 
+df -h             Provides a summary of available and used disk space for each mounted file system:
 -------Fedora 34-------
-df -h        Provides a summary of available and used disk space for each mounted file system.
-
 Filesystem                      Size  Used Avail Use% Mounted on
 /dev/vda2                      1014M  254M  761M  26% /boot
 /dev/vda1                       599M  5.9M  593M   1% /boot/efi
 -------Fedora 34-------
 
-# MBR        A boot secotor at the begining of a storage device.
-             The partition table that resides in the MBR contains information on how the logical partitions are orginized on the disk.
-             Can only address 2 TB of disk space currently ---> Being phased out by GPT (GUID Partition Table).     
-             Allows up to 4 partitions (MBR Partitions Scheme)
-             Extended partitions allow you to created an unlimited number of logical partitions.
+# MBR             A boot secotor at the begining of a storage device.
+                  The partition table that resides in the MBR contains information on how the logical partitions are orginized on the disk.
+                  Can only address 2 TB of disk space currently ---> Being phased out by GPT (GUID Partition Table).     
+                  Allows up to 4 partitions (MBR Partitions Scheme)
+                  Extended partitions allow you to created an unlimited number of logical partitions.
 
-# GPT        GUID Partition Table (Global Unique Identifier)
-             Is replacing the older MBR partitioning scheme.
-             Part of the UEFI (Unified Extensible Firmware Interface)
-             UEFI is replacing BIOS.
+# GPT             GUID Partition Table (Global Unique Identifier)
+                  Is replacing the older MBR partitioning scheme.
+                  Part of the UEFI (Unified Extensible Firmware Interface)
+                  UEFI is replacing BIOS.
+                  There are no primary or extended partitions with GPT.
+                  GPT supports up to 128 partitions.
+                  Supports up to 9.4 ZB disk sizes
+                  Not supported by older operating systems.
+                  May require newer or special tools.
 
+# Mount points    A directory used to access the data on a partition.
 
+/ (slash)         Is always a mount point.
+/home             The 'home' partition mount point.
+/home/admin       The admin mount point of the 'home' partition.
 
-# Mount points
+# fdisk           Create and modify partitions on a disk.
+                  Supports GPT. (Current versions)
+                  To manage partitons on a disk with fdisk:    fdisk /path/to/device
 
-
-
-# fdisk
-
+# Alternatives:   gdisk, parted
