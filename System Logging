@@ -48,8 +48,8 @@ Code    Severity     Keyword              Description
 7       Debug        debug                Debug-level messages   (Least sever)   
 
 # Where logs are stored:
-# Syslog servers:    Processes syslog messages based on rules.
-
+# Syslog servers:    Employ the use of logging roles to determine what action to perform on a given message. Typiclly to store the message in a log file.
+                     Processes syslog messages based on rules.
 syslogd
 rsyslog
 syslog-ng
