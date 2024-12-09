@@ -44,6 +44,9 @@ vmlinuz
 4            Undefined.
 5            Multi-user mode with graphical interface (RedHat/CentOS) 
 6            Reboot.
+quiet        Supresses a lot of log messages during boot.
+
+# From the grub screen, press 'e' and edit the end of kernel line (starts with linux) using an option from above.
 
 # Systemd:                 Uses targets instead of runlevels
 # runlevel targets:        Are symlinks to the real targets being used.
@@ -100,6 +103,7 @@ shutdown -r now                                        Reboots now.
 telinit 0                                Method: init system
 systemctl isolate poweroff.target        Method: systemd
 poweroff                                 Method: Execute poweroff... lol :)
+
 
 
 
