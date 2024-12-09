@@ -1,10 +1,10 @@
-# System Logging
+log file# System Logging
 
 # The syslog standard
 
 Aids in the processing of messages.
-Allows logging to be centrally conrolled.
-Uses facilities and severities to categorize messseges.
+Allows logging to be centrally controlled.
+Uses facilities and severities to categorize messages.
 
 # Facilities & severities:
 
@@ -59,7 +59,7 @@ syslog-ng
 
 /etc/rsyslog.conf    Main configuration file
 
-$ IncludeConfig /etc/rsyslog.d/*.conf    Cause rsyslog to read and include all configuration files that end in '.conf' that also exsist in the /etc/rsyslog.d/ direcory.
+$ IncludeConfig /etc/rsyslog.d/*.conf    Cause rsyslog to read and include all configuration files that end in '.conf' that also exist in the /etc/rsyslog.d/ directory.
 
 # Logging rules -->  Consist of two fields:
 
@@ -69,7 +69,7 @@ $ IncludeConfig /etc/rsyslog.d/*.conf    Cause rsyslog to read and include all c
                      FACILITY.none
                      FACILITY_1.SEVERITY;FACILITY_2.SEVERITY
 
-# Action feild       Determines how a message is processed
+# Action field       Determines how a message is processed
 
 # Example Logging Rule:
 
