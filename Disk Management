@@ -1,0 +1,37 @@
+# Disk Management
+
+# Partitions        Disk divided into parts = Partition
+                    Allow you to separate data
+
+# Partitioning schemes:        As a system administrator, you decide.
+
+1) OS, 2) Application, 3) User, 4) Swap
+1) OS, 2) User home directories
+
+-------Fedora 34-------
+df -h        Provides a summary of available and used disk space for each mounted file system.
+
+Filesystem                      Size  Used Avail Use% Mounted on
+/dev/vda2                      1014M  254M  761M  26% /boot
+/dev/vda1                       599M  5.9M  593M   1% /boot/efi
+-------Fedora 34-------
+
+# MBR        A boot secotor at the begining of a storage device.
+             The partition table that resides in the MBR contains information on how the logical partitions are orginized on the disk.
+             Can only address 2 TB of disk space currently ---> Being phased out by GPT (GUID Partition Table).     
+             Allows up to 4 partitions (MBR Partitions Scheme)
+             Extended partitions allow you to created an unlimited number of logical partitions.
+
+# GPT        GUID Partition Table (Global Unique Identifier)
+             Is replacing the older MBR partitioning scheme.
+             Part of the UEFI (Unified Extensible Firmware Interface)
+             UEFI is replacing BIOS.
+
+
+
+# Mount points
+
+
+
+# fdisk
+
