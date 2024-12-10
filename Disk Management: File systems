@@ -1,2 +1,62 @@
-#  Disk Management: File systems
+# Disk Management: File systems
+
+# File systems:
+# Extended file system:
+
+ext        Extended file system, often the default file system type.
+ext2        
+ext3
+ext4     
+
+# Other file systems:
+
+RiserFS
+JFS
+XFS
+ZFS
+Btrfs
+
+# Creating file systems 
+# mkfs -t TYPE DEVICE     Pattern for creating a file system.
+
+mkfs -t ext3 /dev/sdb2
+mkfs -t ext4 /dev/sdb3
+mkfs.ext4 /dev/sdb3       
+
+# mkfs                    Front end wrapper for the various file system builders. Using mkfs is the same as running longer commands.
+
+ls  -l /sbin/mkfs*        To see available file system options:
+
+-------Ubuntu 22.04.5 LTS-------
+tron@ubuntu-dev-vm:/etc/init.d$ ls  -l /sbin/mkfs*
+-rwxr-xr-x 1 root root  14496 Apr  9  2024 /sbin/mkfs
+-rwxr-xr-x 1 root root  18592 Apr  9  2024 /sbin/mkfs.bfs
+-rwxr-xr-x 1 root root 482248 Feb 24  2022 /sbin/mkfs.btrfs
+-rwxr-xr-x 1 root root  26728 Apr  9  2024 /sbin/mkfs.cramfs
+lrwxrwxrwx 1 root root      6 Oct  9  2023 /sbin/mkfs.ext2 -> mke2fs
+lrwxrwxrwx 1 root root      6 Oct  9  2023 /sbin/mkfs.ext3 -> mke2fs
+lrwxrwxrwx 1 root root      6 Oct  9  2023 /sbin/mkfs.ext4 -> mke2fs
+-rwxr-xr-x 1 root root  47704 Mar 23  2022 /sbin/mkfs.fat
+-rwxr-xr-x 1 root root  39088 Apr  9  2024 /sbin/mkfs.minix
+lrwxrwxrwx 1 root root      8 Mar 23  2022 /sbin/mkfs.msdos -> mkfs.fat
+lrwxrwxrwx 1 root root      6 Nov  1  2022 /sbin/mkfs.ntfs -> mkntfs
+lrwxrwxrwx 1 root root      8 Mar 23  2022 /sbin/mkfs.vfat -> mkfs.fat
+-rwxr-xr-x 1 root root 371016 Feb  9  2022 /sbin/mkfs.xfs
+-------Ubuntu 22.04.5 LTS-------
+
+# Mounting file systems
+# mount DEVICE MOUNT_POINT    Pattern for mounting a file system.
+# mount                       To see what is currently mounted.
+
+mount /dev/sdb3 /opt          To mount /dev/sdb3 to the opt directory.
+
+
+
+# Unmount file systems
+
+# How to prepare swap sapce for use
+
+# File System Table
+
+# Disk UUIDs and Labels
 
