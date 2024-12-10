@@ -65,6 +65,11 @@ I/O size (minimum/optimal): 4096 bytes / 4096 bytes
    o   create a new empty DOS partition table
    s   create a new empty Sun partition table
 
+# I've used this sequence in the past: g, w 
+# Add notes when this method is used live:
+
+
+
 
 
 
