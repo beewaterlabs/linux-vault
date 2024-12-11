@@ -1,0 +1,141 @@
+# LVM - Logical Volume Manager:
+
+# Easily Resize Storage While Online:        Expand or shrink file systems in real-time while the data remains online and fully accessible.
+                                             Easily migrate data from one storage device to another while online.
+
+# Convenient Device Naming:                  You can use human-readable device names of your choosing.                                      /data 
+                                                                                                                                           /\  /\
+# Disk Striping:                             Increase throughput by allowing your system to read data in parallel.    ([Storage drive A]   ||  || [Storage drive B])
+
+# Data Redundancy / Data Mirroring:          Increase fault tolerance and reliability by having more than one copy of your data.    ([Storage drive A] <--/data--> [Storage drive B])
+
+# Snapshots:                                 Create point-in-time snapshots of your fillesystems.
+
+# LVM - Layers of Abstraction:               File Systems                /var                /opt/app
+                                             Logical Volumes (LV)
+                                             Volume Group (VG)
+                                             Physical Volumes (PV)
+                                             Storage Devices
+
+# Logical Volume Creation Process:           Create one or more physical volumes.
+                                             Create a volume group from one or more physical volumes.
+                                             Create one or more logical volumes from the volume group.
+
+lvmdiskscan                                  LVMDiskScan is a command-line utility used to scan all block devices in the system for Logical Volume Manager (LVM) physical volumes (PVs).
+
+-------Fedora release 34-------
+[root@fedora adminuser]# lvmdiskscan
+  /dev/vda1 [     600.00 MiB] 
+  /dev/vda2 [       1.00 GiB] 
+  /dev/vda3 [      38.41 GiB] LVM physical volume
+  0 disks
+  2 partitions
+  0 LVM physical volume whole disks
+  1 LVM physical volume
+-------Fedora release 34-------
+
+lsblk -p                                    The -p option in the lsblk command is used to display key-value pairs for each device.
+df -h                                       The df -h command is used to display disk space usage information for mounted file systems in a human-readable format.
+fdisk -l                                    The fdisk -l command lists the partitions on a disk:
+
+                                            Device: The disk device file (e.g., /dev/sda, /dev/nvme0n1p1, etc.).
+                                            Start: The starting sector of the partition.
+                                            End: The ending sector of the partition.
+                                            Size: The size of the partition in sectors, cylinders, or human-readable format (e.g., MB, GB).
+                                            Id: The partition type (e.g., 83 for Linux, 0x07 for HPFS/NTFS).
+                                            System: The file system type (e.g., Linux, NTFS, FAT32).
+
+pvcreate /dev/sd_                           To create a pyhsical volume.
+pvs -o pv_name,pv_size                      Displays only the name and size of each physical volume.
+
+pvs                                         Displays a list of all physical volumes on the system:
+
+-------Fedora release 34-------
+  PV         VG            Fmt  Attr PSize  PFree 
+  /dev/vda3  fedora_fedora lvm2 a--  38.41g 23.41g
+-------Fedora release 34-------
+
+vgs                                         Displays information about volume groups, which are collections of physical volumes (PVs) that have been combined into a single logical volume for easier management:
+
+-------Fedora release 34-------
+[root@fedora adminuser]# vgs
+  VG            #PV #LV #SN Attr   VSize  VFree 
+  fedora_fedora   1   1   0 wz--n- 38.41g 23.41g
+-------Fedora release 34-------
+
+lvcreate [Size] [Name] [Volume Group]       To create a logical volume.
+lvcreate -L 20G -n lv_data fedora_fedora    -L (size)
+                                            -n (name)
+
+# The Fedora OS that I'm using currently is a virtual machine.
+# The volume group was already in place.
+# Just adding a logical volume called "lv_data"
+
+-------Fedora release 34-------
+[root@fedora adminuser]# lvcreate -L 20G -n lv_data fedora_fedora
+  Logical volume "lv_data" created.
+-------Fedora release 34-------
+
+lvs                                         View your logical volumes:
+
+-------Fedora release 34-------
+[root@fedora adminuser]# lvs
+  LV      VG            Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lv_data fedora_fedora -wi-a----- 20.00g                                                    
+  root    fedora_fedora -wi-ao---- 15.00g   
+-------Fedora release 34-------
+
+lvdisplay                                   Another way to view your volumes:
+
+-------Fedora release 34-------
+[root@fedora adminuser]# lvdisplay
+  --- Logical volume ---
+  LV Path                /dev/fedora_fedora/root
+  LV Name                root
+  VG Name                fedora_fedora
+  LV UUID                XhmS5Z-GHr3-36dC-Z7PN-0tmv-9GKF-a93yr0
+  LV Write Access        read/write
+  LV Creation host, time fedora, 2021-05-03 17:45:33 -0700
+  LV Status              available
+  # open                 1
+  LV Size                15.00 GiB
+  Current LE             3840
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     256
+  Block device           253:0
+   
+  --- Logical volume ---
+  LV Path                /dev/fedora_fedora/lv_data
+  LV Name                lv_data
+  VG Name                fedora_fedora
+  LV UUID                txrgAb-D2MB-88CD-3bV8-l2Y1-6O3Z-ySt7Pi
+  LV Write Access        read/write
+  LV Creation host, time fedora, 2024-12-11 15:31:25 -0800
+  LV Status              available
+  # open                 0
+  LV Size                20.00 GiB
+  Current LE             5120
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     256
+  Block device           253:1
+-------Fedora release 34-------
+
+
+
+
+
+
+
+
+
+
+                                              
+
+
+
+
+
