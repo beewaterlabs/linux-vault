@@ -127,6 +127,34 @@ vda
      ext4   1.0                             d6def4c4-2ad3-45ef-a78c-4c3a74b0ae6d     18.1G    34% /
 -------Ubuntu 22.04.5 LTS-------
 
+# Disk UUIDs:
+
+lsblk -f    Viewing Labels and UUIDs:
+-------Fedora release 34-------
+NAME      FSTYPE      FSVER    LABEL UUID                                   FSAVAIL FSUSE% MOUNTPOINT
+sr0                                                                                        
+zram0                                                                                      [SWAP]
+vda                                                                                        
+├─vda1    vfat        FAT32          92DD-7EB2                               592.9M     1% /boot/efi
+├─vda2    xfs                        ce8d8d65-7ac4-4360-860d-25658e969e66    760.5M    25% /boot
+└─vda3    LVM2_member LVM2 001       e18dCf-4YDD-X21w-GJtj-pOIL-wBhI-OigBIY                
+  └─fedora_fedora-root
+          xfs                        7671f429-267a-4ceb-a02c-79fe2078b536      7.2G    52% /
+-------Fedora release 34-------
+
+blkid
+-------Ubuntu 22.04.5 LTS-------
+/dev/mapper/ubuntu--vg-ubuntu--lv: UUID="d6def4c4-2ad3-45ef-a78c-4c3a74b0ae6d" BLOCK_SIZE="4096" TYPE="ext4"
+/dev/vda2: UUID="ab3ab282-55a6-4828-ab2a-5ea567183c69" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="fb34c154-0f07-45ea-a33a-7cb44e25b709"
+/dev/vda3: UUID="Y8ch6H-lj8B-IFPC-Hd33-pdey-19IJ-eCaIY1" TYPE="LVM2_member" PARTUUID="be8f6994-35ab-43b5-b397-6ce84cf97c7a"
+/dev/vda1: UUID="A623-83BF" BLOCK_SIZE="512" TYPE="vfat" PARTUUID="3631752c-299c-48b1-84f4-d1613436e107"
+/dev/sr0: BLOCK_SIZE="2048" UUID="2024-09-11-18-48-49-00" LABEL="Ubuntu-Server 22.04.5 LTS arm64" TYPE="iso9660" PTTYPE="dos"
+-------Ubuntu 22.04.5 LTS-------
+
+# Labels:
+
+e2label /dev/sdb3 opt        First argument = Path to device 
+                             Second argument = Label
 
 
 
@@ -135,5 +163,6 @@ vda
 
 
 
-# Disk UUIDs and Labels
+
+
 
