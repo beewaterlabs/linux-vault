@@ -3,7 +3,7 @@
 # File systems:
 # Extended file system:
 
-ext        Extended file system, often the default file system type.
+ext                          Extended file system, often the default file system type.
 ext2        
 ext3
 ext4     
@@ -17,15 +17,15 @@ ZFS
 Btrfs
 
 # Creating file systems 
-# mkfs -t TYPE DEVICE     Pattern for creating a file system.
+# mkfs -t TYPE DEVICE        Pattern for creating a file system.
 
 mkfs -t ext3 /dev/sdb2
 mkfs -t ext4 /dev/sdb3
 mkfs.ext4 /dev/sdb3       
 
-# mkfs                    Front end wrapper for the various file system builders. Using mkfs is the same as running longer commands.
+# mkfs                       Front end wrapper for the various file system builders. Using mkfs is the same as running longer commands.
 
-ls  -l /sbin/mkfs*        To see available file system options:
+ls  -l /sbin/mkfs*           To see available file system options:
 
 -------Ubuntu 22.04.5 LTS-------
 tron@ubuntu-dev-vm:/etc/init.d$ ls  -l /sbin/mkfs*
@@ -44,19 +44,96 @@ lrwxrwxrwx 1 root root      8 Mar 23  2022 /sbin/mkfs.vfat -> mkfs.fat
 -rwxr-xr-x 1 root root 371016 Feb  9  2022 /sbin/mkfs.xfs
 -------Ubuntu 22.04.5 LTS-------
 
-# Mounting file systems
-# mount DEVICE MOUNT_POINT    Pattern for mounting a file system.
-# mount                       To see what is currently mounted.
+# Mount file systems:        Manual mounts do not persist between reboots ---> Add an entry in the /etc/fstab file.
 
-mount /dev/sdb3 /opt          To mount /dev/sdb3 to the opt directory.
+mount DEVICE MOUNT_POINT     Pattern for mounting a file system.
+mount                        To see what is currently mounted.
+mount /dev/sdb3 /opt         To mount /dev/sdb3 to the opt directory.
+
+# Umount file systems:
+
+umount DEVICE MOUNT_POINT    Pattern to umount a file system.
+umount /dev/sdb3 /opt        To umount /dev/sdb3 to the opt directory.     
+
+# How to prepare swap sapce for use.
+# Create a swap area and enable it by running the swap command and indicating the path to the partition:
+
+mkswap /dev/sdb1             
+swapon /dev/sdb1             Enable the partition.
+swapon -s                    To see the swap devices in use.
+
+# File System Table:         Controls what devices get mounted and where on boot.
+/etc/fstab                   The File System Table location.
+# Each entry is made up of 6 fields:
+
+device                       Contians a path to a device. A label for a device or a UUID.
+mount point                  Determines where a device will be mounted.
+file system type             File system type.
+mount options                Which options to mount the file system with. Seperate multiple options with a comma using no space before of after.
+dump                         Used by the dump utility: 0 ignore | 1 backup    (Rarely used for backups, rsync is a better option)
+fsck order                   Used by the fsck program at boot time to determine if a file system is to be checked, and in what order: 0 = skip | 1 = checked first | 2 = checked next
+                             For file systems that you want to have checked, it's best practice to set the / file system to 1 with the remining file system set to 2:
+                                 This setting allows for regular checks on the root file system and less frequent checks on other file systems.
+
+# Sample /etc/fstab file:
+# Slightly different on ubuntu operating systems:
+
+-------Ubuntu 22.04.5 LTS-------
+<file system> <mount point>   <type>  <options>       <dump>  <pass>
+
+/dev/disk/by-id/dm-uuid-LVM-OMrcgih5ouhaoQHlLvozQgIvcTG0ncaCTdPe1LceLBSYwUk0icogXtz0nuUGrZ2D / ext4 defaults 0 1
+-------Ubuntu 22.04.5 LTS-------
+
+# The Ubuntu fstab entry (above) shows the following differences:
+device                       Ubuntu calls it <file system>
+fsck                         Ubuntu calls it <pass>
+
+# Viewing Labels and UUIDs:
+
+lsblk -f
+
+-------Ubuntu 22.04.5 LTS-------
+NAME FSTYPE FSVER LABEL                     UUID                                   FSAVAIL FSUSE% MOUNTPOINTS
+loop0
+     squash 4.0                                                                          0   100% /snap/bare/5
+loop1
+     squash 4.0                                                                          0   100% /snap/core20/2321
+loop2
+     squash 4.0                                                                          0   100% /snap/core22/1720
+loop3
+     squash 4.0                                                                          0   100% /snap/firefox/5360
+loop4
+     squash 4.0                                                                          0   100% /snap/gnome-42-2204/178
+loop5
+     squash 4.0                                                                          0   100% /snap/gtk-common-themes/1535
+loop6
+     squash 4.0                                                                          0   100% /snap/lxd/29353
+loop7
+     squash 4.0                                                                          0   100% /snap/snapd/21761
+loop8
+                                                                                         0   100% /snap/core20/2437
+loop9
+     squash 4.0                                                                          0   100% /snap/lxd/31335
+sr0  iso966 Jolie Ubuntu-Server 22.04.5 LTS arm64
+                                            2024-09-11-18-48-49-00                       0   100% /media/tron/Ubuntu-Server 22.04.5 LTS arm64
+vda                                                                                               
+├─vda1
+│    vfat   FAT32                           A623-83BF                                   1G     1% /boot/efi
+├─vda2
+│    ext4   1.0                             ab3ab282-55a6-4828-ab2a-5ea567183c69      1.6G    10% /boot
+└─vda3
+     LVM2_m LVM2                            Y8ch6H-lj8B-IFPC-Hd33-pdey-19IJ-eCaIY1                
+  └─ubuntu--vg-ubuntu--lv
+     ext4   1.0                             d6def4c4-2ad3-45ef-a78c-4c3a74b0ae6d     18.1G    34% /
+-------Ubuntu 22.04.5 LTS-------
 
 
 
-# Unmount file systems
 
-# How to prepare swap sapce for use
 
-# File System Table
+
+
+
 
 # Disk UUIDs and Labels
 
