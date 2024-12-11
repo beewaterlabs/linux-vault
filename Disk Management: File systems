@@ -55,7 +55,7 @@ mount /dev/sdb3 /opt         To mount /dev/sdb3 to the opt directory.
 umount DEVICE MOUNT_POINT    Pattern to umount a file system.
 umount /dev/sdb3 /opt        To umount /dev/sdb3 to the opt directory.     
 
-# How to prepare swap sapce for use.
+# How to prepare swap space for use.
 # Create a swap area and enable it by running the swap command and indicating the path to the partition:
 
 mkswap /dev/sdb1             
@@ -66,13 +66,13 @@ swapon -s                    To see the swap devices in use.
 /etc/fstab                   The File System Table location.
 # Each entry is made up of 6 fields:
 
-device                       Contians a path to a device. A label for a device or a UUID.
+device                       Contains a path to a device. A label for a device or a UUID.
 mount point                  Determines where a device will be mounted.
 file system type             File system type.
-mount options                Which options to mount the file system with. Seperate multiple options with a comma using no space before of after.
+mount options                Which options to mount the file system with. Separate multiple options with a comma using no space before of after.
 dump                         Used by the dump utility: 0 ignore | 1 backup    (Rarely used for backups, rsync is a better option)
 fsck order                   Used by the fsck program at boot time to determine if a file system is to be checked, and in what order: 0 = skip | 1 = checked first | 2 = checked next
-                             For file systems that you want to have checked, it's best practice to set the / file system to 1 with the remining file system set to 2:
+                             For file systems that you want to have checked, it's best practice to set the / file system to 1 with the remaining file system set to 2:
                                  This setting allows for regular checks on the root file system and less frequent checks on other file systems.
 
 # Sample /etc/fstab file:
