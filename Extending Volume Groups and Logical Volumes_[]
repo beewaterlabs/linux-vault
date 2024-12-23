@@ -1,1 +1,17 @@
 # Extending Volume Groups and Logical Volumes
+
+# LVM      Logical Volume Manager:
+
+lvs        Display information about logical volumes.
+vgs        Display information about Volume Groups (VGs) in the LVM configuration.
+
+# VGS Output:
+
+VG:        The name of the Volume Group.
+#PV:       The number of Physical Volumes (PVs) in the VG.
+#LV:       The number of Logical Volumes (LVs) in the VG.
+#SN:       The number of snapshots associated with the VG.
+Attr:      Attributes of the VG, indicating its status and characteristics.
+VSize:     The total size of the VG.
+VFree:     The amount of free space available in the VG.
+
