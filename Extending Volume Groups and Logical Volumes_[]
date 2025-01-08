@@ -15,3 +15,118 @@ Attr:      Attributes of the VG, indicating its status and characteristics.
 VSize:     The total size of the VG.
 VFree:     The amount of free space available in the VG.
 
++++FedoraVM+++ Will need to edit this doc with a non-VM OS for better examples: []
+
+Logicl volume creaetion:
+   50  lvcreate -L 20G -n lv_data fedora_fedora
+   55  mkfs -t lvm2 /dev/fedora_fedora/lv_data
+
+[root@fedora ~]# lvs
+  LV      VG            Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lv_data fedora_fedora -wi-a----- 20.00g                                                    
+  root    fedora_fedora -wi-ao---- 15.00g    
+
+[root@fedora ~]# vgs
+  VG            #PV #LV #SN Attr   VSize  VFree
+  fedora_fedora   1   2   0 wz--n- 38.41g 3.41g
+
+Look for disks:
+
+[root@fedora ~]# lvmdiskscan
+  /dev/vda1 [     600.00 MiB] 
+  /dev/vda2 [       1.00 GiB] 
+  /dev/vda3 [      38.41 GiB] LVM physical volume
+  0 disks
+  2 partitions
+  0 LVM physical volume whole disks
+  1 LVM physical volume
+
+Here you can see I have no free space:
+
+[root@fedora ~]# lvmdiskscan
+  /dev/vda1 [     600.00 MiB] 
+  /dev/vda2 [       1.00 GiB] 
+  /dev/vda3 [      38.41 GiB] LVM physical volume
+  0 disks
+  2 partitions
+  0 LVM physical volume whole disks
+  1 LVM physical volume
+
+If I had a non-VM OS and a free storage device, it would look like this:
+
+[root@fedora ~]# lvmdiskscan
+/dev/sdc        [       20.00 GiB]
+
+pvcreate /dev/sdc (To create a physical volume)
+
+To extand our Lociacl Volume:
+
+vgextend lv_data /dev/sdc
+
+Display information about physical volumes (PVs) in the Logical Volume Manager (LVM)
+
+[root@fedora ~]# pvs
+  PV         VG            Fmt  Attr PSize  PFree
+  /dev/vda3  fedora_fedora lvm2 a--  38.41g 3.41g
+
+View of space from the file system level:
+
+[root@fedora ~]# df -h /dev/vda3
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+
+Extend space:
+
+lvextend -L +5G -r /dev/fedora_fedora/lv_data  (Add 5GiB of space, -r = resize)
+
+If I had free space and was able to create a physical volume with /dev/sdc it would show the new block size.
+
+If you forget the + (above) the logical volume will extend, however the filesystem will need to be resized.
+
+resize2fs /dev/fedora_fedora/lv_data  (This will align the file system to to logical volume size)
+
+lvs command would show the logical volume size increase.
+
+Another view:
+
+df -h /data
+
+[root@fedora ~]# df -h /dev/fedora_fedora/lv_data 
+Filesystem      Size  Used Avail Use% Mounted on
+devtmpfs        4.0M     0  4.0M   0% /dev
+
+To view map for a volume:
+
+[root@fedora ~]# lvdisplay -m /dev/fedora_fedora/lv_data 
+  --- Logical volume ---
+  LV Path                /dev/fedora_fedora/lv_data
+  LV Name                lv_data
+  VG Name                fedora_fedora
+  LV UUID                txrgAb-D2MB-88CD-3bV8-l2Y1-6O3Z-ySt7Pi
+  LV Write Access        read/write
+  LV Creation host, time fedora, 2024-12-11 15:31:25 -0800
+  LV Status              available
+  # open                 0
+  LV Size                20.00 GiB
+  Current LE             5120
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     256
+  Block device           253:1
+   
+  --- Segments ---
+  Logical extents 0 to 5119:
+    Type		linear
+    Physical volume	/dev/vda3
+    Physical extents	3840 to 8959
+
+LVM - one file system that spans multiple storage devices.  (Update doc with non-VM OS for a good example)
+
+File system sizes are not limited to disk size.
+
+
+
+
+
+
