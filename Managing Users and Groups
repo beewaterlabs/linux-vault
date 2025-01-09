@@ -68,7 +68,7 @@ Like the '/etc/passwd' file, the '/etc/shadow' file contains a series of fields 
 
 * The first field is the username.
 * The second field contains the encrypted password.
-* The third field is the number of days since January 1, 1970 since the password has been changed.
+* The third field is the number of days since January 1, 1970 since the password has been changed. (Why date? look into this: [])
 * The fourth field is the number of days before the password can be changed.
 * The fifth field is the number of days after which the password must be changed.
     If this field contains 99999, the user never has to change their password.
@@ -76,6 +76,40 @@ Like the '/etc/passwd' file, the '/etc/shadow' file contains a series of fields 
 * The seventh field is the number of days after the password has expired that the account is disabled.
 * The eighth field is the number of days since Janary 1, 1970 that an account has been disabled.
 * The ninth field is reserved for future use.
+
+# Create User:
+
+useradd -c "Grant Stewart" -m -s /bin/bash grant
+
+# Assign the account a password:
+
+passwd grant
+
+# Account information for user "grant":
+
+tail -1 /etc/passwd
+
++++++++Fedors-VM+++++++
+[root@fedora ~]# tail -1 /etc/passwd
+grant:x:1001:1001:Grant Stewart:/home/grant:/bin/bash
++++++++Fedors-VM+++++++
+
+tail -1 /etc/shadow
+
++++++++Fedors-VM+++++++
+[root@fedora ~]# tail -1 /etc/shadow
+grant:$6$DW6Ry5jHPiYcP2VM$g03uitdmf1KZQLdoSl1vJwNpqnXTgf3v6jZzhrcyG.JnKyQ7TQTBWK.xKOxzapTCjR3hLcp3OeB0hupq5Dub/0:20097:0:99999:7:::
++++++++Fedors-VM+++++++
+
+# More useradd options
+
+-g GROUP            Specify the default group.
+-G GROUP1,GROUPN    Additional groups.
+
+
+
+
+
 
 
 
