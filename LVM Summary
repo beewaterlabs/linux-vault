@@ -1,2 +1,17 @@
 # LVM Summary
 
+Locial Volume Manager introduces layers of abstraction including:
+* Physical Volumes (PVs)
+* Volume Groups (VGs)
+* Logical Volumes (LVs)
+
+Creating LVs
+
+pvcreate /dev/sdb
+
+vgcreate vg_name /dev/sdb
+
+lvcreate -L 100G -n lv_name vg_name
+
+mkfs -t ext4 /dev/vg_name/lv_name
+
