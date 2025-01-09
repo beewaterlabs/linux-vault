@@ -215,13 +215,22 @@ And finally we need to provide a username or login ID.
 
 So we'll use first initial lastname in this example.
 
-So I can create a password for this user.
+# useradd -c "Carlton Cuse" -g writers -G tv -m -s /bin/bash ccuse
 
-Let's see what groups this user is in.
+So I can create a password for this user:
 
-You can see that the user is in writers and tv group,
+[root@fedora ~]# passwd ccuse
+Changing password for user ccuse.
+New password: 
+Retype new password: 
+passwd: all authentication tokens updated successfully.
 
-just like we specified in the useradd command.
+Let's see what groups this user is in:
+
+[root@fedora ~]# groups ccuse
+ccuse : writers tv
+
+You can see that the user is in writers and tv group, ust like we specified in the useradd command.
 
 Let's go ahead and add another user.
 
