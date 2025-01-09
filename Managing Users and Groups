@@ -106,7 +106,12 @@ grant:$6$DW6Ry5jHPiYcP2VM$g03uitdmf1KZQLdoSl1vJwNpqnXTgf3v6jZzhrcyG.JnKyQ7TQTBWK
 -g GROUP            Specify the default group.
 -G GROUP1,GROUPN    Additional groups.
 
-
+groupadd --gid 1000 sales
+groupadd --gid 4100 projectx
+useradd -c "Eddie Harris" -m -s /bin/bash -g sales -G projectx eharris
+passwd eharris
+# Enter passwd x2:
+passwd: all authentication tokens updated successfully.
 
 
 
