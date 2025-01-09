@@ -318,3 +318,21 @@ To update an existing group use the 'groupmod' command.
 
 To list group memberships for an account, use the 'groups' command.
 
+# Summary:
+
+Accounts can be created with the 'useradd' command.
+
+To delete an account use the 'userdel' command.
+
+Modifying accounts can be accomplished by using the 'usermod' command.
+
+Group information is stored in the /etc/group file.
+
+To create a group, use the 'groupadd' command.
+
+You can delete groups by using the 'groupdel' command.
+
+To update an existing group use the 'groupmod' command.
+
+To list group memberships for an account, use the 'groups' command.
+
