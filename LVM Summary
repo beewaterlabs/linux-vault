@@ -5,7 +5,7 @@ Locial Volume Manager introduces layers of abstraction including:
 * Volume Groups (VGs)
 * Logical Volumes (LVs)
 
-Creating LVs
+# Creating LVs
 
 pvcreate /dev/sdb
 
@@ -14,4 +14,40 @@ vgcreate vg_name /dev/sdb
 lvcreate -L 100G -n lv_name vg_name
 
 mkfs -t ext4 /dev/vg_name/lv_name
+
+# Extending LVs
+
+lvextend -L +10G -r /dev/vg_name/lv_name
+
+pvcreate /dev/sdc
+
+vgextend vg_name /dev/sdc
+
+# Mirrored LVs
+
+lvcreate -m 1 -L 100G -n lv_name vg_name        Creates a mirrored logical volume named lv_name with a size of 100GB inside the volume group vg_name. 
+                                                The -m 1 option specifies that the logical volume should be mirrored.
+                                                -L 100G sets the size of the logical volume to 100GB.
+                                                -n lv_name assigns the name lv_name to the new logical volume.
+
+# Removing LVs
+
+lvremove /dev/vg_name/lv_name        Remove logical volumes.
+
+vgreduce vg_name /dev/sdb            Remove physical volumes from volume groups.
+
+vgremove vg_name                     Remove volume groups.
+
+pvremove /dev/sdb                    Remove physical volumes.
+
+
+
+
+
+
+
+
+
+
+
 
