@@ -153,3 +153,159 @@ usermod [options] username
 
 https://external-teksystems.udemy.com/course/linux-administration-bootcamp/learn/lecture/5720644#overview
 
+# Add group:
+
+groupadd writers; groupadd tv; groupadd movie
+
+tail -3 /etc/group
+
+[root@fedora ~]# groupadd writers; groupadd tv; groupadd movie
+tail -3 /etc/group
+writers:x:4102:
+tv:x:4103:
+movie:x:4104:
+
+# Lesson continued:
+# Update notes with live examples when needed: []
+
+
+In this demonstration we are going to create a writers group,
+
+a tv group, and a movie group.
+
+Next we are going to create some user accounts.
+
+All of these user accounts will belong to the writers groups,
+
+but only some of them will belong to the tv group,
+
+while the others will belong to the movie group.
+
+Let's create the writers group by using 'groupadd writers'.
+
+We'll do the same thing with 'tv'.
+
+And finally movie.
+
+Now you can see that the last three entries
+
+in the /etc/group file are the three accounts
+
+we just created.
+
+You'll notice that the GID or group IDs are incremented
+
+by one automatically by the groupadd command.
+
+Let's go ahead and create the first of our users.
+
+We'll put the comment as this user's name.
+
+The primary group will be writers, so '-g writers'.
+
+The additional group will be 'tv'.
+
+We'll use '-m' to make sure the home directory gets created.
+
+And will specify shell with '-s'.
+
+In this case we'll give this user the /bash.
+
+And finally we need to provide a username or login ID.
+
+So we'll use first initial lastname in this example.
+
+So I can create a password for this user.
+
+Let's see what groups this user is in.
+
+You can see that the user is in writers and tv group,
+
+just like we specified in the useradd command.
+
+Let's go ahead and add another user.
+
+I'll put him in the writer's group as well.
+
+He is a tv writer, so put him in the television group or tv group.
+
+Create his home directory
+
+and give him the bash shell as well.
+
+Ok. That looks good.
+
+Let's add another user.
+
+Additional group for this user will be movie.
+
+Okay, you can see that he is in the writers and movie group.
+
+Let's add one final writer.
+
+'-g' for the primary group, let's use writers,
+
+'-G' for any additional groups, movie.
+
+We can...
+
+Let's add this person to 2 groups,
+
+I want to add to the movie and tv group.
+
+There you can see that this user is in three groups.
+
+Now if we look at the /etc/group file,
+
+whoops!
+
+I need to type 3 there.
+
+Now we can see the list of members in the tv and movie groups,
+
+however we do not see any users and the members list for writers.
+
+But we know that those users are in that group
+
+because we typed groups.
+
+'ccuse', you can see that he's in the writer's group.
+
+Well, if we search for that GID
+
+in the /etc/password file,
+
+we can confirm that each of these user's primary groups
+
+are 1002, which corresponds to the GID of the writers group
+
+and that's why they are included in the writer's group
+
+even though their usernames are not listed in the /etc/group file.
+
+Account information is stored in the /etc/passwd and /etc/shadow files.
+
+In addition to a username,
+
+each account consists of a unique number called the UID,
+
+a default group, a comment,
+
+a home directory location, and a login shell.
+
+Accounts can be created with the 'useradd' command.
+
+To delete an account use the 'userdel' command.
+
+Modifying accounts can be accomplished by using the 'usermod' command.
+
+Group information is stored in the /etc/group file.
+
+To create a group, use the 'groupadd' command.
+
+You can delete groups by using the 'groupdel' command.
+
+To update an existing group use the 'groupmod' command.
+
+To list group memberships for an account, use the 'groups' command.
+
