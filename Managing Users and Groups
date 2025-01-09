@@ -6,8 +6,76 @@ Username (or login ID).
 UID (user ID). Unique identifying number.
 Default group.
 Comments.
-Shell.
 Home Directory location.
+Shell.
 
-All stored in: /etc/passwd
+Seven fields represented:
+
+username:password:UID:GID:comments:home_dir:shell
+
+All stored in the following directory:      /etc/passwd
+
+Stay under 8 characters to avoid UID showing in the output of the ps command and othr outputs..
+
+By default, the encrypted password information is stored in /etc/shadow which is only readable by the superuser account.
+
+Root account is always UID 0.
+
+System accounts have UIDs < 1000
+  Configured in:    /etc/login.defs
+
+# GID
+
+The group ID, or GID, listed in the password file entry for the account is the account's default group.
+When a user creates a file, that file will belong to the user's default group.
+If a user wants to create files using another group, they can use the following command:
+
+newgrp
+
+# Comment Field
+
+The comment field usualy contains the user's real name or a description of what the account is used for.
+You'll sometimes hear this field refered to as the GECOS field.
+This is a historical hold over from the early years of Unix.
+
+# Shell
+
+The shell will be executed when the user logs into the system with their account.
+You can see a list of installed shells on your Linux system here:
+
+/etc/shells
+
++++++++Fedors-VM+++++++
+[root@fedora ~]# cat /etc/shells 
+/bin/sh
+/bin/bash
+/usr/bin/sh
+/usr/bin/bash
++++++++Fedors-VM+++++++
+
+Whatever is listed in the shell field will be executed upon login even if the program is not actually a shell.
+For example, you may see:
+
+'/usr/sbin/nologin' or '/bin/false' in the shell field for certain accounts.
+
+This ensures that no one can use those accounts interactively.
+
+You can also use the shell field to execute a program when a user logs into the system.
+For example, you could force users into a menu driven application
+that only allows them access to certain actions.
+
+Like the '/etc/passwd' file, the '/etc/shadow' file contains a series of fields separated by a colon.
+
+* The first field is the username.
+* The second field contains the encrypted password.
+* The third field is the number of days since January 1, 1970 since the password has been changed.
+* The fourth field is the number of days before the password can be changed.
+* The fifth field is the number of days after which the password must be changed.
+    If this field contains 99999, the user never has to change their password.
+* The sixth field is the number of days to warn the user that their password will expire.
+* The seventh field is the number of days after the password has expired that the account is disabled.
+* The eighth field is the number of days since Janary 1, 1970 that an account has been disabled.
+* The ninth field is reserved for future use.
+
+
 
