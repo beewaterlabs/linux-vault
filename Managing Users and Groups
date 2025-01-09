@@ -113,7 +113,25 @@ passwd eharris
 # Enter passwd x2:
 passwd: all authentication tokens updated successfully.
 
+# System or Application Accounts:
 
+useradd -c "Apache Web Server User" -d /opt/apache -r -s /usr/sbin/nologin apache
+
+[root@fedora ~]# tail -1 /etc/passwd
+apache:x:985:980:Apache Web Server User:/opt/apache:/usr/sbin/nologin
+
+-r                Create a system account.
+-d /home/dir      Specify the home directory.
+
+# Use -u to specify the UID:
+
+useradd -c "MySQL Server" -d /opt/mysql -u 97 -s /usr/sbin/nologin mysql
+[root@fedora ~]# tail -1 /etc/passwd
+mysql:x:97:4101:MySQL Server:/opt/mysql:/usr/sbin/nologin
+
+# Delete user account:
+
+userdel -r 
 
 
 
