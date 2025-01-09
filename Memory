@@ -1,0 +1,17 @@
+# Memory
+
+[adminuser@fedora ~]$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           1.9Gi       1.3Gi       213Mi        12Mi       405Mi       521Mi
+Swap:          1.9Gi       422Mi       1.5Gi
+      
+The columns in the output represent:
+
+total: Total amount of memory.
+used: Memory currently in use.
+free: Memory that is not being used.
+shared: Memory shared with other systems.
+buff/cache: Memory used for buffers and cache.
+available: Estimate of memory available for new applications without swapping.
+This command provides a clear and easily understandable view of the system’s memory usage.
+
