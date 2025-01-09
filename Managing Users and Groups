@@ -131,8 +131,25 @@ mysql:x:97:4101:MySQL Server:/opt/mysql:/usr/sbin/nologin
 
 # Delete user account:
 
-userdel -r 
+[root@fedora ~]# ls /home
+adminuser  eharris  grant
 
+userdel eharris                        Deletes account, leave the home dir intact as there are files.
 
+[root@fedora ~]# userdel -r grant      Deletes user and home dir.
+[root@fedora ~]# ls /home
+adminuser  eharris
 
+# Update or modify user accounts:
+
+usermod [options] username
+
+-c "COMMENT"        Comments account.
+-g GROUP            Specify the default group.
+-G GROUP1,GROUPN    Additional groups.
+-s /shell/path      Path to the user's shell.
+
+# Group add: Use when needed in live environment, update notes: []
+
+https://external-teksystems.udemy.com/course/linux-administration-bootcamp/learn/lecture/5720644#overview
 
