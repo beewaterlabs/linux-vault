@@ -1,2 +1,13 @@
 # Managing Users and Groups
 
+Accounts have a:
+
+Username (or login ID).
+UID (user ID). Unique identifying number.
+Default group.
+Comments.
+Shell.
+Home Directory location.
+
+All stored in: /etc/passwd
+
