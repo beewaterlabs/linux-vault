@@ -1,0 +1,172 @@
+# Special Permission Modes - Part One
+# Update notes in a live environment: []
+
+Let's take a couple of minutes to talk about
+
+the special modes of setuid, setguid, and the sticky bit.
+
+When you start a process it starts running with your user and group permissions.
+
+We've talked about ways to run programs as others, including using the sudo command and
+
+the su command. However, there is a special permission you
+
+can use called setuid. It stands for set user ID and it forces a process to start as the
+
+owner of the file, regardless who executes that file.
+
+To tell if a file has the setuid bit set, you can look at it's ls output. You will see
+
+an s in the execute field of the owner section of the permissions. The passwd program is
+
+one such file that has the setuid permission. Since the owner of the file is root, when
+
+this program gets executed it runs as the root user. The reason the passwd commands
+
+uses setuid root is because it needs root privileges to modify the /etc/passwd and/or
+
+/etc/shadow files when a user changes their password.
+
+The ping command is another example of setuid root permissions. The ping command needs root
+
+privileges to access network devices. Setting the setuid bit and having root as the owner
+
+of the file, lets anyone on the system successfully use the ping command.
+
+The chsh command is yet another example. This command allows the user to change their shell.
+
+Doing so requires an update to the /etc/passwd file which can only be edited by the root
+
+user. Once an attacker gains access to a system
+
+they often look for files that are suid root. Since these files run as root they are an
+
+attacker surface for privilege escalation attacks.
+
+It's important to note that most Linux distributions do not honor setuid on shell scripts, only
+
+on binary files. If you were to execute a shell script that has the setuid attribute
+
+set, it would execute as you. Said another way, it will execute as the user who runs
+
+that script. This is a security measure taken by the OS.
+
+Just like you can determine the numeric permissions to use with chmod by adding together the base
+
+10 values of read, write, and execute, you can add together the permissions of setuid,
+
+setgid, and the sticky bit to get the desired special permissions.
+
+The base 10 value of setuid is 4, setgid is 2, and the sticky bit is 1.
+
+Just like any other file permissions, you can add the setuid attribute to a file using
+
+the chmod command. To do so in symbolic notation, run chmod u+s
+
+and then supply the path to the file. To add the setuid attribute using octal notation,
+
+start the permissions with a 4, then follow it with normal permissions mode. For example,
+
+you could run chmod 4755 to turn on the setuid attribute, allow the owner of the file full
+
+permissions and everyone else the ability to read and execute the file.
+
+To remove the setuid permission, run chmod u-s or chmod starting with a 0 followed by
+
+the desired numeric mode. To find all the files on a system that have
+
+the setuid permission, you can use the find command.
+
+find /, which means start searching from the root of the file system, then use the -perm
+
+option followed by a forward slash and then 4000. The forward slash means to match any
+
+of the permission bits that are set for the file. If you are using an older version of
+
+find you might need to use -perm +4000. You can also use the -ls option to find which
+
+displays the results in a long listing format so you can view the permissions.
+
+What you are looking for is files that can be edited by any other user than the owner.
+
+Using a 4755 mode on a file only allows the owner of the file to edit it.
+
+Using 4775 gives editing permissions to members of the group to which the file belongs.
+
+Using 4777 allows anyone to edit the file. This would be extremely bad, especially if
+
+the file is owned by root. This would allow someone to change the contents of that file
+
+to do whatever they want. When they execute that file it will run with root privileges.
+
+This is something an attacker hopes to find when then gain access to your system. If they
+
+broke in with a normal user account they are looking to escalate their privileges to the
+
+superuser account so they can do anything they want with the system.
+
+Setgid is very much like setuid. It causes the program to run with the group privileges
+
+of the file, rather than the group privileges of the person executing the file.
+
+To tell if a file has the setgid bit set, you can look at it's ls output. You will see
+
+an s in the execute field of the group section of the permissions. One example of a command
+
+that is setgid, is the wall command. The wall command displays a message to the terminal
+
+of users that are logged into the system. Since all the files that represent a users
+
+terminal are in the tty group and the tty group has write permission on those files,
+
+anyone using the wall command is allowed to write to those terminals because that process
+
+is running with tty group privileges. To find all the files on a system that have
+
+the setgid permission, run find / -perm forward slash 2000. Again, the
+
+forward slash means to match any of the permission bits that are set for the file. If you are
+
+using an older version of find you might need to use -perm +2000.
+
+To add the setgid permission to a file, use chmod g+s or use a 2 in the first field of
+
+the permissions string. For example, you could run chmod 2755 on a file to turn on the setgid
+
+attribute, allow the owner of the file full permissions and everyone else the ability
+
+to read and execute the file. If you want to add both the setuid and setgid
+
+permission you can run chmod ug+s or chmod 6 followed by the normal permissions. Since
+
+setuid is represented by 4 and setgid is represented by 2, you add them together to get 6 and use
+
+that in the special permissions field. To remove the setgid permission, use chmod
+
+g-s. You could also subtract 2 from the special permissions field. To clear all special permissions
+
+use chmod 0 followed by the normal desired mode.
+
+Using setgid on a directory causes new files and subdirectories created within it to inherit
+
+the group ID of that directory rather than the group id of the user creating the new
+
+file or directory. Also, newly created directories inherit the
+
+setgid bit, so again, all the new files and directories created within that new directory
+
+inherit the group ID of that directory. Note that setting the setgid permission on
+
+a directory only affects the group ID of new files and subdirectories created after the
+
+setgid bit is set. Adding the setgid bit to an existing directory does not change the
+
+permissions of existing files and subdirectories. Using the setgid bit on directories can make
+
+it easier when working with groups. If you want to make sure all files are created with
+
+the proper group ownership in a shared location, turn on the setgid bit for that directory.
+
+This way you don't have to worry about a user forgetting to run the newgrp command before
+
+creating a file or forgetting to change the group ownership of a file they created.
