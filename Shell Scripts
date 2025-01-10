@@ -103,3 +103,55 @@ then
   command 2
   command N
 fi
+
+# Example script:
+
+#!/bin/bash
+
+MY_SHELL="bash"
+
+if [ "MY_SHELL" = "bash" ]
+then
+    echo "You seem to like the bash shell."
+fi
+
+## I've created a script for symbolic link checking: if_script_file_is_symlink_check.sh
+
+#!/bin/bash
+
+# True if file is a symbolic link.
+
+if [ -h /root/if_script_file_is_symlink_check.sh ]
+then
+    echo "This file is a symbolic link."
+else
+    echo "Not a symbolic link."
+fi
+
+[user@fedora ~]# ./if_script_file_is_symlink_check.sh 
+Not a symbolic link.
+
+# To create a symbolic link:
+
+ln -s /bin/bash /bin/symlink-sh
+
+# This command creates a symbolic link /bin/symlink-sh that points to /bin/bash.
+
+# Symbolic link checker script, pointing to the symbolic link created above: if_script_file_is_symlink_check1.sh
+
+#!/bin/bash
+
+# True if file is a symbolic link.
+
+if [ -h /bin/symlink-sh ]
+then
+    echo "This file is a symbolic link."
+else
+    echo "Not a symbolic link."
+fi
+
+[user@fedora ~]# ./if_script_file_is_symlink_check1.sh 
+This file is a symbolic link.
+
+
+
