@@ -172,5 +172,58 @@ fi
 [user@fedora ~]# ./elif-script.sh 
 You don't seem to like the bash or csh shells.
 
+# For loop logic:
+
+for VARIABLE_NAME in ITEM_1 ITEM_N
+do
+  command 1
+  command 2
+  command N
+done
+
+# Example For loop script:
+
+#!/bin/bash
+
+for COLOR in red green blue
+do
+  echo "COLOR: $COLOR"
+done
+
+[admin@fedora ~]# ./for-loop-color.sh 
+COLOR: red
+COLOR: green
+COLOR: blue
+
+# Another for loop:
+
+[root@fedora ~]# cat for-loop-Ramones.sh 
+#!/bin/bash
+
+for RAMONES in Joey Jonny DeeDee Tommy
+do
+  echo "RAMONES: $RAMONES"
+done
+
+[root@fedora ~]# ./for-loop-Ramones.sh 
+RAMONES: Joey
+RAMONES: Jonny
+RAMONES: DeeDee
+RAMONES: Tommy
+
+
+
+
+
+1. 
+2.
+3.
+4.
+
+
+
+
+
+
 
 
