@@ -9,7 +9,7 @@ chmod 755 script.sh
 
 ./script.sh
 
-[root@fedora ~]# ./script.sh 
+[admin@fedora ~]# ./script.sh 
 Scripting is fun!
 
 # Tests:
@@ -128,7 +128,7 @@ else
     echo "Not a symbolic link."
 fi
 
-[user@fedora ~]# ./if_script_file_is_symlink_check.sh 
+[admin@fedora ~]# ./if_script_file_is_symlink_check.sh 
 Not a symbolic link.
 
 # To create a symbolic link:
@@ -150,7 +150,7 @@ else
     echo "Not a symbolic link."
 fi
 
-[user@fedora ~]# ./if_script_file_is_symlink_check1.sh 
+[admin@fedora ~]# ./if_script_file_is_symlink_check1.sh 
 This file is a symbolic link.
 
 # elif script example: elif-script.sh
@@ -169,7 +169,7 @@ else
   echo "You don't seem to like the bash or csh shells."
 fi
 
-[user@fedora ~]# ./elif-script.sh 
+[admin@fedora ~]# ./elif-script.sh 
 You don't seem to like the bash or csh shells.
 
 # For loop logic:
@@ -197,7 +197,7 @@ COLOR: blue
 
 # Another for loop:
 
-[root@fedora ~]# cat for-loop-Ramones.sh 
+[admin@fedora ~]# cat for-loop-Ramones.sh 
 #!/bin/bash
 
 for RAMONES in Joey Jonny DeeDee Tommy
@@ -205,20 +205,59 @@ do
   echo "RAMONES: $RAMONES"
 done
 
-[root@fedora ~]# ./for-loop-Ramones.sh 
+[admin@fedora ~]# ./for-loop-Ramones.sh 
 RAMONES: Joey
 RAMONES: Jonny
 RAMONES: DeeDee
 RAMONES: Tommy
 
+# Addind date data to .jpg files
 
+#!/bin/bash
 
+PICTURES=$(ls *jpg)
+DATE=$(date +%F)
 
+for PICTURE in $PICTURES
+do
+  echo "Renaming ${PICTURE} to ${DATE}
+-${PICTURE}"
+  mv ${PICTURE} ${DATE}-${PICTURE}
+done
 
-1. 
-2.
-3.
-4.
+[admin@fedora ~]# ./date-jpg.sh 
+Renaming 2025-01-12-Blues-Brothers.jpg to 2025-01-12
+-2025-01-12-Blues-Brothers.jpg
+Renaming 2025-01-12-PinkFloyd.jpg to 2025-01-12
+-2025-01-12-PinkFloyd.jpg
+Renaming 2025-01-12-ramones.jpg to 2025-01-12
+-2025-01-12-ramones.jpg
+
+[admin@fedora ~]# ll *jpg
+-rwxr-xr-x. 1 root root 0 Jan 12 20:36 2025-01-12-2025-01-12-Blues-Brothers.jpg
+-rwxr-xr-x. 1 root root 0 Jan 12 20:36 2025-01-12-2025-01-12-PinkFloyd.jpg
+-rwxr-xr-x. 1 root root 0 Jan 12 20:36 2025-01-12-2025-01-12-ramones.jpg
+
+# Archive user
+
+#!/bin/bash
+
+read -p "Enter a user name: " USER
+echo "Archiving user: $USER"
+
+# Lock the account
+passwd -l  $USER
+
+# Create an archive of the home directory.
+tar cf /archives/${USER}.tar.gz /home/${USER}
+
+[admin@fedora ~]# ./Archive-User.sh 
+Enter a user name: ccuse
+Archiving user: ccuse
+Locking password for user ccuse.
+passwd: Success
+tar: Removing leading `/' from member names
+
 
 
 
