@@ -19,6 +19,11 @@ find /usr -size +1M -ls (Add -ls to see file attributes)
 # Locate files and directories that have uptime in thier name:
 locate uptime
 
+# List all directories that start with upper case D and lower case d:
+
+[admin@fedora ~]# ls -d D* d*
+Darwin  date-jpg.sh  delwin
+
 # Displaying the contents of files:
 
 cat  file     Display the contents of file.
