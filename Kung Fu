@@ -1,2 +1,34 @@
 # Kung Fu
 
+sudo !!       Run last command as sudo.
+
+# !!          Event designater.
+
+whoami        Shows current user.
+
+uptime        Shows system uptime.
+
+df -hT /boot  To check the disk space usage of the /boot partition.
+
+[admin@fedora ~]# df -hT /boot
+Filesystem     Type  Size  Used Avail Use% Mounted on
+/dev/vda2      xfs  1014M  254M  761M  26% /boot
+
+# Rerun a command starting with string:
+
+!<STRING>
+
+Examples:
+
+!d
+!du
+!df
+
+mkdir myapp    Create dorectory "myapp"
+useradd myapp
+
+
+
+
+
+
