@@ -24,8 +24,37 @@ Examples:
 !du
 !df
 
-mkdir myapp    Create dorectory "myapp"
-useradd myapp
+mkdir myapp          Create directory "myapp"
+useradd myapp        Create user for this application "myapp"
+chown myapp myapp    Make application owner, owner of directory.
+chmod 700 myapp
+cd /var/log
+!m                   Most recent command runed with "m" = mkdir myapp
+
+[admin@fedora log]# !m
+mkdir myapp
+
+!$                  To use the last item on the previous command line in your current command.
+
+If I ever use this /\ place example below:
+
+[admin@fedora ~]# mkdir testdir
+[admin@fedora ~]# cd !$
+cd testdir
+
+# Locate installed package:
+
+[admin@fedora testdir]# rpm -qa | grep ssh 
+openssh-8.6p1-5.fc34.aarch64
+libssh-config-0.9.6-1.fc34.noarch
+libssh-0.9.6-1.fc34.aarch64
+openssh-server-8.6p1-5.fc34.aarch64
+openssh-clients-8.6p1-5.fc34.aarch64
+
+# Find location of "thing":
+
+find / -type f -name "elif-script.sh"
+
 
 
 
