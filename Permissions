@@ -46,8 +46,8 @@ Symbolic            Octal  Description
 
 # chmod +x (Changes a file's permissions to executable)
 
+# To edit file permissions recursivly in a directory path:
 
-
-
+find /path/to/directory -type f -exec chmod 644 {} \;
 
 
