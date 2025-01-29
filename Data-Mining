@@ -1,0 +1,11 @@
+# Data-Mining
+
+# Find OS install build date:
+# Fedora
+[fedora@fedora ~]$ rpm -qi basesystem | grep "Build Date"
+Build Date  : Wed 18 Jan 2023 02:48:13 PM PST
+
+# Ubuntu:
+tron@ubuntu-dev:~$ stat --format=%w /
+2025-01-22 09:36:16.000000000 +0000
+
