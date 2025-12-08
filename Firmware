@@ -1,1 +1,3 @@
-Firmware
+# Firmware
+
+sudo lshw -class system | grep -A8 '*-firmware'
