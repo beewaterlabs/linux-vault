@@ -1,3 +1,9 @@
 # Firmware
 
-sudo lshw -class system | grep -A8 '*-firmware'
+# Make sure system is up-to-date:
+sudo yum update && sudo yum upgrade -y 
+
+# For checking the system BIOS or UEFI firmware version:
+
+
+
