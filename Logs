@@ -1,0 +1,10 @@
+# Logs
+
+# This command displays system log entries from the past hour that are classified as errors or more severe levels (such as critical, alert, or emergency).
+sudo journalctl -p err --since "1 hour ago"
+
+# sudo: Grants administrative privileges, often needed to access all journal entries.
+# journalctl: The command to query and display logs from systemd's journal.
+# -p err: Filters logs by priority (or "priority level") to show only messages at the "err" level and above (i.e., err, crit, alert, emerg).
+# --since "1 hour ago": Restricts output to entries from the last hour.
+
