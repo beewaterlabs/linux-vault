@@ -4,6 +4,14 @@
 sudo yum update && sudo yum upgrade -y 
 
 # For checking the system BIOS or UEFI firmware version:
+sudo dmidecode -s bios-version
 
+# Another useful tool is fwupdmgr, which manages firmware updates and displays current firmware versions for supported devices. Install it with:
+sudo dnf install fwupd
 
+# In order for changes to fwupd.conf to take effect, you'll need to restart fwupd:
+sudo systemctl restart fwupd.service
+
+# Then list devices and their firmware versions:
+sudo fwupdmgr get-devices
 
